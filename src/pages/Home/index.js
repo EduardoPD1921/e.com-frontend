@@ -12,6 +12,8 @@ import {
   ActionButton,
 } from './styles';
 
+import tvImage from '../../static/images/tvImage.png';
+
 function Home() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -33,7 +35,7 @@ function Home() {
           </BannerButtons>
         </BannerElement>
         <BannerElement>
-          test
+          <img width={500} src={tvImage} alt="televisão-antiga" />
         </BannerElement>
       </Banner>
     </>
