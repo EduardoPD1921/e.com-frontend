@@ -29,7 +29,7 @@
 
 ## :computer: Pré-requisitos
 
-Antes de começar, verifique se você antende aos seguintes requisitos:
+Antes de começar, verifique se você atende aos seguintes requisitos:
 - Possui instalado a versão mais recente do `yarn` ou `npm`.
 
 ## :rocket: Instalando o projeto
