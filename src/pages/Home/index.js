@@ -2,12 +2,17 @@ import React from 'react';
 
 // import Carousel from 'react-multi-carousel';
 
-import Header from '../../components/Header';
-import Banner from '../../components/Banner';
+import { HeartOutlined, ShoppingCartOutlined } from '@ant-design/icons';
 
 import {
   HomeSection,
+  CardSectionTitle,
+  ProductCard,
+  CardActions
 } from './styles';
+
+import Header from '../../components/Header';
+import Banner from '../../components/Banner';
 
 function Home() {
   // const responsive = {
@@ -28,12 +33,23 @@ function Home() {
   //   }
   // };
 
+  // cor do coração #e0245e
+
   return (
     <HomeSection>
       <Header />
       <Banner />
 
-      
+      <CardSectionTitle>
+        Produtos novos
+      </CardSectionTitle>
+
+      <ProductCard>
+        <CardActions>
+          <HeartOutlined style={{ fontSize: 15, color: '#c8c8c8' }} />
+          <ShoppingCartOutlined style={{ fontSize: 20, color: '#c8c8c8' }} />
+        </CardActions>
+      </ProductCard>
     </HomeSection>
   );
 };
