@@ -12,9 +12,10 @@
 
 - [x] Header
 - [x] Banner
-- [ ] Slider de produtos na home
+- [x] Slider de produtos na home
 - [ ] Sistema de cadastro de usuários
 - [ ] Sistema de cadastro de produtos
+- [ ] Página do produto
 
 ## :large_orange_diamond: Identidade visual
 <img src="./.github/assets/images/preview.png">
