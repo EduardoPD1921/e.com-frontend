@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './static/css/app.css';
 import 'antd/dist/antd.css';
+import 'react-multi-carousel/lib/styles.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 

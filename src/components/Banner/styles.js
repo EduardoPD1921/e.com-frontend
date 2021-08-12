@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { Button } from 'antd';
 
 export const BannerSection = styled.div`
-  width: 100vw;
+  width: 100%;
   height: 500px;
 
   display: flex;
