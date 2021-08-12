@@ -8,11 +8,17 @@ import {
   HomeSection,
   CardSectionTitle,
   ProductCard,
-  CardActions
+  CardActions,
+  CardInfo,
+  CardShow,
+  CardTitle,
+  CardPrice
 } from './styles';
 
 import Header from '../../components/Header';
 import Banner from '../../components/Banner';
+
+import itemImage from '../../static/images/itemImage.png';
 
 function Home() {
   // const responsive = {
@@ -49,6 +55,18 @@ function Home() {
           <HeartOutlined style={{ fontSize: 15, color: '#c8c8c8' }} />
           <ShoppingCartOutlined style={{ fontSize: 20, color: '#c8c8c8' }} />
         </CardActions>
+        <CardInfo>
+          <img src={itemImage} width={150} alt="Relógio" />
+          <CardTitle>
+            Relógio Rolex
+          </CardTitle>
+          <CardPrice>
+            R$120,00
+          </CardPrice>
+        </CardInfo>
+        <CardShow>
+          Ver mais
+        </CardShow>
       </ProductCard>
     </HomeSection>
   );
