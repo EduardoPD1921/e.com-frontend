@@ -12,7 +12,8 @@ import {
   SignInForm,
   FormIllustration,
   FormInputs,
-  FormInput
+  FormInput,
+  FormInputPassword
 } from './styles';
 
 function SignIn() {
@@ -27,10 +28,30 @@ function SignIn() {
           </FormIllustration>
           <FormInputs>
             <Form
+              requiredMark={false}
+              name="signInForm"
               layout="vertical"
             >
-              <Form.Item label={<label style={{ color: '#5f5f5f', fontFamily: 'robotoMedium' }}>Test</label>}>
+              <Form.Item
+                label={<label style={{ color: '#5f5f5f', fontFamily: 'robotoMedium' }}>E-mail</label>}
+                name="email"
+                rules={[{
+                  required: true,
+                  type: 'email',
+                  message: 'Insira seu e-mail'
+                }]}
+              >
                 <FormInput />
+              </Form.Item>
+              <Form.Item
+                label={<label style={{ color: '#5f5f5f', fontFamily: 'robotoMedium' }}>Senha</label>}
+                name="password"
+                rules={[{
+                  required: true,
+                  message: 'Insira sua senha'
+                }]}
+              >
+                <FormInputPassword />
               </Form.Item>
             </Form>
           </FormInputs>

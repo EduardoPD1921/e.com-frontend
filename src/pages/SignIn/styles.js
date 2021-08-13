@@ -47,13 +47,43 @@ export const FormInputs = styled.div`
 
 export const FormInput = styled(Input)`
   && {
-    background: #efefef;
+    width: 100%;
+
+    background: #efefef !important;
     border-top: none;
     border-left: none;
     border-right: none;
+    border-width: 2px;
 
     &:focus {
-      box-shadow: none;
+      border-color: #ff8b15;
+      box-shadow: none !important;
+    }
+
+    &:hover {
+      border-color: #ff8b15;
+    }
+  }
+`;
+
+export const FormInputPassword = styled(Input.Password)`
+  && {
+    width: 100%;
+
+    background-color: #efefef !important;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-width: 2px;
+    box-shadow: none !important;
+
+    &:focus {
+      border-color: #ff8b15;
+      box-shadow: none !important;
+    }
+
+    &:hover {
+      border-color: #ff8b15;
     }
   }
 `;
