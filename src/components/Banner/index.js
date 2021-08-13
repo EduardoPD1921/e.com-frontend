@@ -21,7 +21,7 @@ function Banner() {
         <BannerSubtitle>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque mollis lorem at ipsum vestibulum iaculis. Ut a faucibus lectus. Curabitur quis elementum tortor.</BannerSubtitle>
         <BannerButtons>
           <ActionButton size="large" product={true} shape="round">Produtos</ActionButton>
-          <ActionButton href="/registerTypeSelector" size="large" shape="round">Entrar</ActionButton>
+          <ActionButton href="/signIn" size="large" shape="round">Entrar</ActionButton>
         </BannerButtons>
       </BannerText>
       <BannerArt>
