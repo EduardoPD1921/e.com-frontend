@@ -4,6 +4,24 @@ html, body {
   font-family: roboto !important;
 }
 
+/* Custom antd inputs, that's why it's needed to use !important tag */
+.ant-input {
+  background-color: #efefef !important;
+}
+
+.ant-input-affix-wrapper-focused {
+  border-color: #ff8b15 !important;
+}
+
+.ant-checkbox-inner {
+  background-color: #efefef !important;
+}
+
+.ant-checkbox-checked .ant-checkbox-inner {
+  background-color: #ff8b15 !important;
+  border-color: #ff8b15 !important;
+}
+
 @font-face {
   font-family: roboto;
   src: url('../fonts/Roboto-Regular.ttf');

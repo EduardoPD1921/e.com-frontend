@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Input } from 'antd';
+import { Input, Button } from 'antd';
 
 export const SignInSection = styled.div`
   width: 100%;
@@ -34,6 +34,7 @@ export const FormIllustration = styled.div`
 
   display: flex;
   justify-content: center;
+  align-items: center;
 `;
 
 export const FormInputs = styled.div`
@@ -47,7 +48,7 @@ export const FormInputs = styled.div`
 
 export const FormInput = styled(Input)`
   && {
-    width: 100%;
+    width: 120%;
 
     background: #efefef !important;
     border-top: none;
@@ -68,22 +69,29 @@ export const FormInput = styled(Input)`
 
 export const FormInputPassword = styled(Input.Password)`
   && {
-    width: 100%;
+    width: 120%;
 
     background-color: #efefef !important;
     border-top: none;
     border-left: none;
     border-right: none;
     border-width: 2px;
-    box-shadow: none !important;
-
-    &:focus {
-      border-color: #ff8b15;
-      box-shadow: none !important;
-    }
+    box-shadow: none;
 
     &:hover {
       border-color: #ff8b15;
     }
+  }
+`;
+
+export const SubmitButton = styled(Button)`
+  && {
+    width: 120%;
+
+    color: white;
+
+    background-color: #ff8b15;
+
+    border: none;
   }
 `;
