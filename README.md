@@ -13,6 +13,7 @@
 - [x] Header
 - [x] Banner
 - [x] Slider de produtos na home
+- [ ] Footer
 - [ ] Responsividade dos cards de produtos
 - [ ] Responsividade dos formulários
 - [ ] Sistema de cadastro de usuários
@@ -68,3 +69,8 @@ npm start
 ```sh
 yarn start
 ```
+
+
+## :floppy_disk: E.com backend
+
+Para acessar todos os features do projeto é necessário seguir as instruções de instalação do backend, encontradas [nesse repositório](https://github.com/EduardoPD1921/e.com-backend).
