@@ -15,12 +15,30 @@ export const SignInFormArea = styled.div`
   height: 500px;
 
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
 
   border-radius: 10px;
 
   -webkit-box-shadow: 4px 1px 15px -2px rgba(0,0,0,0.2); 
   box-shadow: 4px 1px 15px -2px rgba(0,0,0,0.2);
+`;
+
+export const SignInSection = styled.div`
+  flex: 1;
+
+  display: flex;
+  flex-direction: row;
+`;
+
+export const FormTitle = styled.div`
+  margin: 10px;
+
+  display: flex;
+  justify-content: center;
+
+  color: #5f5f5f;
+  font-size: 18px;
+  font-family: robotoBold;
 `;
 
 export const FormIllustration = styled.div`
@@ -87,5 +105,25 @@ export const SubmitButton = styled(Button)`
     background-color: #ff8b15;
 
     border: none;
+
+    &:hover {
+      background-color: #ffa03f;
+    }
+  }
+`;
+
+export const FormExtraInfo = styled.div`
+  width: 120%;
+
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+`;
+
+export const FormLink = styled.a`
+  color: #ff8b15;
+
+  &:hover {
+    color: #ffa03f;
   }
 `;
