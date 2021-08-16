@@ -13,6 +13,8 @@
 - [x] Header
 - [x] Banner
 - [x] Slider de produtos na home
+- [ ] Responsividade dos cards de produtos
+- [ ] Responsividade dos formulários
 - [ ] Sistema de cadastro de usuários
 - [ ] Sistema de cadastro de produtos
 - [ ] Página do produto
