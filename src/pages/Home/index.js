@@ -10,6 +10,7 @@ import {
 import Header from '../../components/Header';
 import Banner from '../../components/Banner';
 import ProductCard from '../../components/ProductCard';
+import Footer from '../../components/Footer';
 
 import itemImage from '../../static/images/itemImage.png';
 
@@ -50,6 +51,8 @@ function Home() {
           price="R$1450,00" 
         />
       </Carousel>
+
+      <Footer />
     </HomeSection>
   );
 };
