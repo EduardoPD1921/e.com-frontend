@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Input } from 'antd';
 
 export const SignUpSection = styled.div`
   width: 100%;
@@ -25,6 +26,9 @@ export const FormShape = styled.div`
 
   -webkit-box-shadow: 4px 1px 15px -2px rgba(0,0,0,0.2); 
   box-shadow: 4px 1px 15px -2px rgba(0,0,0,0.2);
+
+  /* background: #efefef; */
+  background: white;
 `;
 
 export const FormMarketingInfo = styled.div`
@@ -87,4 +91,26 @@ export const FormInputs = styled.div`
   flex: 3;
 
   display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const FormInput = styled(Input)`
+  && {
+    width: 120%;
+
+    border: none;
+    border-radius: 7px;
+  
+    background: #efefef;
+
+    &:focus {
+      background: white !important;
+    }
+  }
+`;
+
+export const FormLabel = styled.label`
+  color: #5f5f5f;
+  font-family: robotoMedium;
 `;

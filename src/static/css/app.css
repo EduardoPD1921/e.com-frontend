@@ -9,8 +9,12 @@ html, body {
   background-color: #efefef !important;
 }
 
-.ant-input-affix-wrapper-focused {
-  border-color: #ff8b15 !important;
+#signUpForm_name:focus {
+  background-color: white !important;
+}
+
+#signUpForm_email:focus {
+  background-color: white !important;
 }
 
 .ant-checkbox-inner {
@@ -20,6 +24,10 @@ html, body {
 .ant-checkbox-checked .ant-checkbox-inner {
   background-color: #ff8b15 !important;
   border-color: #ff8b15 !important;
+}
+
+.ant-input-affix-wrapper-focused {
+  background-color: white !important;
 }
 
 @font-face {

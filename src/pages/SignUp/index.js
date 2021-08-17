@@ -3,7 +3,8 @@ import React from 'react';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 
-import { MobileOutlined, ShopOutlined, MessageOutlined } from '@ant-design/icons';
+import { Form } from 'antd';
+import { MobileOutlined, ShopOutlined, MessageOutlined, UserOutlined, MailOutlined } from '@ant-design/icons';
 
 import {
   SignUpSection,
@@ -16,7 +17,9 @@ import {
   IconShape,
   CardTitle,
   CardText,
-  CardInfo
+  CardInfo,
+  FormInput,
+  FormLabel
 } from './styles';
 
 function SignUp() {
@@ -70,7 +73,47 @@ function SignUp() {
             </MarketingSection>
           </FormMarketingInfo>
           <FormInputs>
-            test
+            <Form
+              requiredMark={false}
+              name="signUpForm"
+              layout="vertical"
+              // initialValues={}
+              // onFinish={}
+            >
+              <Form.Item
+                label={<FormLabel>Nome</FormLabel>}
+                name="name"
+                rules={[{
+                  required: true,
+                  message: 'Insira seu nome'
+                }]}
+              >
+                <FormInput
+                  prefix={<UserOutlined style={{ fontSize: 15, color: '#bfbfbf', marginRight: 5 }} />}
+                  placeholder="Digite seu nome"
+                />
+              </Form.Item>
+              <Form.Item
+                label={<FormLabel>E-mail</FormLabel>}
+                name="email"
+                rules={[{
+                  required: true,
+                  type: 'email',
+                  message: 'Insira seu e-mail'
+                }]}
+              >
+                {/* <FormInput placeholder="Digite seu e-mail" /> */}
+                <FormInput
+                  prefix={<MailOutlined style={{ fontSize: 15, color: '#bfbfbf', marginRight: 5 }} />}
+                  placeholder="Digite seu e-mail" 
+                />
+              </Form.Item>
+              <Form.Item
+                label={<FormLabel></FormLabel>}
+              >
+
+              </Form.Item>
+            </Form>
           </FormInputs>
         </FormShape>
       </FormSection>
