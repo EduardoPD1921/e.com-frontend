@@ -66,7 +66,7 @@ function SignInForm({ onSubmitForm }) {
               </Form.Item>
               <FormExtraInfo>
                 <div style={{ color: '#5f5f5f' }}>
-                  Não tem uma conta? <FormLink href="/">Cadastre-se</FormLink>
+                  Não tem uma conta? <FormLink href="/signUp">Cadastre-se</FormLink>
                 </div>
                 <Divider style={{ fontSize: 12, color: '#5f5f5f', margin: 5 }}>ou</Divider>
                 <FormLink href="/">Entrar como loja</FormLink>

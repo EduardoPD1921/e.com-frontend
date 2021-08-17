@@ -20,9 +20,9 @@ function Footer() {
   return (
     <FooterSection>
       <IconButtons>
-        <LinkIcon link="/" icon={<GithubOutlined style={{ fontSize: 25, margin: 10, color: '#efefef' }} />} />
-        <LinkIcon link="/" icon={<InstagramOutlined style={{ fontSize: 25, margin: 10, color: '#efefef' }} />} />
-        <LinkIcon link="/" icon={<TwitterOutlined style={{ fontSize: 25, margin: 10, color: '#efefef' }} />} />
+        <LinkIcon link="https://github.com/EduardoPD1921" icon={<GithubOutlined style={{ fontSize: 25, margin: 10, color: '#efefef' }} />} />
+        <LinkIcon link="https://www.instagram.com/eduardo_gomes_heleno/" icon={<InstagramOutlined style={{ fontSize: 25, margin: 10, color: '#efefef' }} />} />
+        <LinkIcon link="https://twitter.com/duardoheleno" icon={<TwitterOutlined style={{ fontSize: 25, margin: 10, color: '#efefef' }} />} />
       </IconButtons>
       <InfoLinks>
       Info • Ajuda • Marketing • Termos de uso • Política de privacidade • Código aberto

@@ -2,7 +2,7 @@ import React from 'react';
 
 function LinkIcon({ icon, link }) {
   return (
-    <a href={link}>
+    <a target="_blank" rel="noreferrer" href={link}>
       {icon}
     </a>
   );
