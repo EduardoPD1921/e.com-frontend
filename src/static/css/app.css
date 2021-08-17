@@ -5,15 +5,16 @@ html, body {
 }
 
 /* Custom antd inputs, that's why it's needed to use !important tag */
-.ant-input {
-  background-color: #efefef !important;
-}
 
 #signUpForm_name:focus {
   background-color: white !important;
 }
 
 #signUpForm_email:focus {
+  background-color: white !important;
+}
+
+#signUpForm_password:focus {
   background-color: white !important;
 }
 
@@ -26,7 +27,17 @@ html, body {
   border-color: #ff8b15 !important;
 }
 
+.ant-picker-focused {
+  background-color: white !important;
+}
+
+.ant-input {
+  background-color: #efefef !important;
+}
+
 .ant-input-affix-wrapper-focused {
+  border-color: #ff8b15 !important;
+  box-shadow: none !important;
   background-color: white !important;
 }
 

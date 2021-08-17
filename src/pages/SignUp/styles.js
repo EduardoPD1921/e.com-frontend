@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import { Input } from 'antd';
+import styled, { css } from 'styled-components';
+import { Input, DatePicker } from 'antd';
 
 export const SignUpSection = styled.div`
   width: 100%;
@@ -95,11 +95,10 @@ export const FormInputs = styled.div`
   align-items: center;
 `;
 
-export const FormInput = styled(Input)`
+const baseInputStyle = css`
   && {
     width: 120%;
-
-    border: none;
+    
     border-radius: 7px;
   
     background: #efefef;
@@ -108,6 +107,18 @@ export const FormInput = styled(Input)`
       background: white !important;
     }
   }
+`;
+
+export const FormInput = styled(Input)`
+  ${baseInputStyle}
+`;
+
+export const DateInput = styled(DatePicker)`
+  ${baseInputStyle}
+`;
+
+export const PasswordInput = styled(Input.Password)`
+  ${baseInputStyle}
 `;
 
 export const FormLabel = styled.label`

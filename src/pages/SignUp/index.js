@@ -19,7 +19,9 @@ import {
   CardText,
   CardInfo,
   FormInput,
-  FormLabel
+  FormLabel,
+  DateInput,
+  PasswordInput
 } from './styles';
 
 function SignUp() {
@@ -102,16 +104,36 @@ function SignUp() {
                   message: 'Insira seu e-mail'
                 }]}
               >
-                {/* <FormInput placeholder="Digite seu e-mail" /> */}
                 <FormInput
                   prefix={<MailOutlined style={{ fontSize: 15, color: '#bfbfbf', marginRight: 5 }} />}
                   placeholder="Digite seu e-mail" 
                 />
               </Form.Item>
               <Form.Item
-                label={<FormLabel></FormLabel>}
+                label={<FormLabel>Data de nascimento</FormLabel>}
+                name="birthDate"
+                rules={[{
+                  required: true,
+                  type: 'date',
+                  message: 'Insira sua data de nascimento'
+                }]}
               >
-
+                <DateInput
+                  placeholder="Escolha sua data de nascimento" 
+                  format="DD/MM/YYYY"
+                />
+              </Form.Item>
+              <Form.Item
+                label={<FormLabel>Senha</FormLabel>}
+                name="password"
+                rules={[{
+                  required: true,
+                  message: 'Insira sua senha'
+                }]}
+              >
+                <PasswordInput
+                  placeholder="Digite sua senha" 
+                />
               </Form.Item>
             </Form>
           </FormInputs>
