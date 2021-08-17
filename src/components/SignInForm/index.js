@@ -13,6 +13,7 @@ import {
   FormInputs,
   FormInput,
   FormInputPassword,
+  FormLabel,
   SubmitButton,
   FormExtraInfo,
   FormLink
@@ -36,7 +37,7 @@ function SignInForm({ onSubmitForm }) {
               onFinish={onSubmitForm}
             >
               <Form.Item
-                label={<label style={{ color: '#5f5f5f', fontFamily: 'robotoMedium' }}>E-mail</label>}
+                label={<FormLabel>E-mail</FormLabel>}
                 name="email"
                 rules={[{
                   required: true,
@@ -47,7 +48,7 @@ function SignInForm({ onSubmitForm }) {
                 <FormInput />
               </Form.Item>
               <Form.Item
-                label={<label style={{ color: '#5f5f5f', fontFamily: 'robotoMedium' }}>Senha</label>}
+                label={<FormLabel>Senha</FormLabel>}
                 name="password"
                 rules={[{
                   required: true,

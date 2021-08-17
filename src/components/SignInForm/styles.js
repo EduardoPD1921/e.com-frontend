@@ -96,6 +96,11 @@ export const FormInputPassword = styled(Input.Password)`
   }
 `;
 
+export const FormLabel = styled.label`
+  color: #5f5f5f;
+  font-family: robotoMedium;
+`;
+
 export const SubmitButton = styled(Button)`
   && {
     width: 120%;
