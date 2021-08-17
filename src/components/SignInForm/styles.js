@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { Input, Button } from 'antd';
 
 export const SignInFormSection = styled.div`
@@ -58,7 +58,7 @@ export const FormInputs = styled.div`
   display: flex;
 `;
 
-export const FormInput = styled(Input)`
+const baseInputStyle = css`
   && {
     width: 120%;
 
@@ -79,21 +79,12 @@ export const FormInput = styled(Input)`
   }
 `;
 
+export const FormInput = styled(Input)`
+  ${baseInputStyle}
+`;
+
 export const FormInputPassword = styled(Input.Password)`
-  && {
-    width: 120%;
-
-    background-color: #efefef !important;
-    border-top: none;
-    border-left: none;
-    border-right: none;
-    border-width: 2px;
-    box-shadow: none !important;
-
-    &:hover {
-      border-color: #ff8b15;
-    }
-  }
+  ${baseInputStyle}
 `;
 
 export const FormLabel = styled.label`
