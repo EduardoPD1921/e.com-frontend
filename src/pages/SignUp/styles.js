@@ -31,14 +31,60 @@ export const FormMarketingInfo = styled.div`
   flex: 2;
 
   display: flex;
+  justify-content: center;
+  align-items: center;
 
-  background: black;
+  color: white;
+
+  background: rgb(255,139,21);
+  background: -moz-linear-gradient(130deg, rgba(255,139,21,1) 49%, rgba(255,177,0,1) 100%);
+  background: -webkit-linear-gradient(130deg, rgba(255,139,21,1) 49%, rgba(255,177,0,1) 100%);
+  background: linear-gradient(130deg, rgba(255,139,21,1) 49%, rgba(255,177,0,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ff8b15",endColorstr="#ffb100",GradientType=1); 
+`;
+
+export const MarketingSection = styled.div`
+  width: 70%;
+  height: 80%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+`;
+
+export const TextCard = styled.div`
+  display: flex;
+`;
+
+export const IconShape = styled.div`
+  height: 80px;
+
+  background-color: rgba(255, 255, 255, 0.15);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  border-radius: 8px;
+`;
+
+export const CardText = styled.div`
+  margin-left: 20px;
+`;
+
+export const CardTitle = styled.div`
+  font-family: robotoBold;
+`;
+
+export const CardInfo = styled.div`
+  display: flex;
+
+  font-size: 12px;
+  opacity: 0.8;
 `;
 
 export const FormInputs = styled.div`
   flex: 3;
 
   display: flex;
-
-  background: red;
 `;
