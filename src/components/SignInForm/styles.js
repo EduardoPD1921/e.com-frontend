@@ -19,6 +19,8 @@ export const SignInFormArea = styled.div`
 
   border-radius: 10px;
 
+  background: white;
+
   -webkit-box-shadow: 4px 1px 15px -2px rgba(0,0,0,0.2); 
   box-shadow: 4px 1px 15px -2px rgba(0,0,0,0.2);
 `;
@@ -62,7 +64,7 @@ const baseInputStyle = css`
   && {
     width: 120%;
 
-    background: #efefef !important;
+    /* background: #efefef !important; */
     border-top: none;
     border-left: none;
     border-right: none;

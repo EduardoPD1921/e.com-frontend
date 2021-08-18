@@ -3,8 +3,8 @@ import React from 'react';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 
-import { Form } from 'antd';
-import { MobileOutlined, ShopOutlined, MessageOutlined, UserOutlined, MailOutlined } from '@ant-design/icons';
+import { Form, Checkbox } from 'antd';
+import { MobileOutlined, ShopOutlined, MessageOutlined, UserOutlined, MailOutlined, LockOutlined } from '@ant-design/icons';
 
 import {
   SignUpSection,
@@ -21,7 +21,8 @@ import {
   FormInput,
   FormLabel,
   DateInput,
-  PasswordInput
+  PasswordInput,
+  SubmitButton
 } from './styles';
 
 function SignUp() {
@@ -132,8 +133,22 @@ function SignUp() {
                 }]}
               >
                 <PasswordInput
+                  prefix={<LockOutlined style={{ fontSize: 15, color: '#bfbfbf', marginRight: 5 }} />}
                   placeholder="Digite sua senha" 
                 />
+              </Form.Item>
+              <Form.Item
+                name="termsUse"
+                valuePropName="checked"
+                rules={[{
+                  required: true,
+                  message: 'Aceite os termos'
+                }]}
+              >
+                <Checkbox style={{ color: '#5f5f5f', marginLeft: 20 }}>Eu concordo com os <a href="/">termos de uso</a></Checkbox>
+              </Form.Item>
+              <Form.Item>
+                <SubmitButton htmlType="submit">Cadastrar</SubmitButton>
               </Form.Item>
             </Form>
           </FormInputs>

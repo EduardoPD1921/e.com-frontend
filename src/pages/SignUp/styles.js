@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import { Input, DatePicker } from 'antd';
+import { Input, DatePicker, Button } from 'antd';
 
 export const SignUpSection = styled.div`
   width: 100%;
@@ -27,7 +27,6 @@ export const FormShape = styled.div`
   -webkit-box-shadow: 4px 1px 15px -2px rgba(0,0,0,0.2); 
   box-shadow: 4px 1px 15px -2px rgba(0,0,0,0.2);
 
-  /* background: #efefef; */
   background: white;
 `;
 
@@ -93,6 +92,7 @@ export const FormInputs = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
 `;
 
 const baseInputStyle = css`
@@ -100,12 +100,6 @@ const baseInputStyle = css`
     width: 120%;
     
     border-radius: 7px;
-  
-    background: #efefef;
-
-    &:focus {
-      background: white !important;
-    }
   }
 `;
 
@@ -124,4 +118,23 @@ export const PasswordInput = styled(Input.Password)`
 export const FormLabel = styled.label`
   color: #5f5f5f;
   font-family: robotoMedium;
+`;
+
+export const SubmitButton = styled(Button)`
+  && {
+    margin-top: 10px;
+
+    width: 120%;
+
+    background: #ff8b15;
+
+    border-radius: 7px;
+    border: none;
+
+    color: white;
+
+    &:hover {
+      background: #ffa03f;
+    }
+  }
 `;
