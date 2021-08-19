@@ -1,5 +1,7 @@
 import React from 'react';
 
+import api from '../../api';
+
 import InfoCard from './InfoCard';
 
 import { Form, Checkbox } from 'antd';
@@ -25,7 +27,21 @@ import {
   SubmitButton
 } from './styles';
 
-function SignUpForm({ onSubmitForm }) {
+function SignUpForm() {
+  const onSubmitForm = formValues => {
+    const { name, email, birthDate, password } = formValues;
+    const formData = {
+      name,
+      email,
+      birthDate: birthDate._d,
+      password
+    };
+
+    api.post('/user/store', formData)
+      .then(resp => console.log(resp))
+      .catch(error => console.log(error));
+  };
+
   return (
     <FormSection>
       <FormShape>

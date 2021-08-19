@@ -7,17 +7,11 @@ import SignUpForm from '../../components/SignUpForm';
 import { SignUpSection } from './styles';
 
 function SignUp() {
-  const onSubmitForm = formValues => {
-    console.log(formValues);
-  };
-
   return (
     <SignUpSection>
       <Header />
 
-      <SignUpForm
-        onSubmitForm={onSubmitForm} 
-      />
+      <SignUpForm />
 
       <Footer />
     </SignUpSection>
