@@ -16,8 +16,8 @@
 - [x] Footer
 - [ ] Responsividade dos cards de produtos
 - [ ] Responsividade dos formulários
-- [ ] Sistema de cadastro de usuários
-- [ ] Sistema de cadastro de produtos
+- [ ] Sistema de login
+- [x] Sistema de cadastro de usuários
 - [ ] Página do produto
 
 ## :large_orange_diamond: Identidade visual
