@@ -62,7 +62,21 @@ function SignUpForm() {
         default:
           return console.log(error);
       }
-    })
+    });
+  };
+
+  const clearCustomErrors = formError => {
+    formError.errorFields.map(error => {
+      if (error.name[0] === 'email') {
+        return setEmailError('');
+      };
+
+      if (error.name[0] === 'password') {
+        return setPasswordError('');
+      }
+
+      return {};
+    });
   };
 
   return (
@@ -93,6 +107,7 @@ function SignUpForm() {
             name="signUpForm"
             layout="vertical"
             onFinish={onSubmitForm}
+            onFinishFailed={clearCustomErrors}
           >
             <Form.Item
               label={<FormLabel>Nome</FormLabel>}
