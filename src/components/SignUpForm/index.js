@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import api from '../../api';
 
@@ -28,7 +28,13 @@ import {
 } from './styles';
 
 function SignUpForm() {
+  const [emailError, setEmailError] = useState('');
+  const [passwordError, setPasswordError] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
+
   const onSubmitForm = formValues => {
+    setIsLoading(true);
+
     const { name, email, birthDate, password } = formValues;
     const formData = {
       name,
@@ -39,7 +45,24 @@ function SignUpForm() {
 
     api.post('/user/store', formData)
       .then(resp => console.log(resp))
-      .catch(error => console.log(error));
+      .catch(error => onSubmitError(error.response.data));
+  };
+
+  const onSubmitError = errorData => {
+    setIsLoading(false);
+    setEmailError('');
+    setPasswordError('');
+
+    errorData.map(error => {
+      switch (error.code) {
+        case 1000:
+          return setPasswordError(error.message);
+        case 2000:
+          return setEmailError(error.message);
+        default:
+          return console.log(error);
+      }
+    })
   };
 
   return (
@@ -82,6 +105,7 @@ function SignUpForm() {
               <FormInput
                 prefix={<UserOutlined style={{ fontSize: 15, color: '#bfbfbf', marginRight: 5 }} />}
                 placeholder="Digite seu nome"
+                disabled={isLoading}
               />
             </Form.Item>
             <Form.Item
@@ -92,10 +116,15 @@ function SignUpForm() {
                 type: 'email',
                 message: 'Insira seu e-mail'
               }]}
+              {...emailError && {
+                help: emailError,
+                validateStatus: 'error'
+              }}
             >
               <FormInput
                 prefix={<MailOutlined style={{ fontSize: 15, color: '#bfbfbf', marginRight: 5 }} />}
-                placeholder="Digite seu e-mail" 
+                placeholder="Digite seu e-mail"
+                disabled={isLoading} 
               />
             </Form.Item>
             <Form.Item
@@ -110,6 +139,7 @@ function SignUpForm() {
               <DateInput
                 placeholder="Escolha sua data de nascimento" 
                 format="DD/MM/YYYY"
+                disabled={isLoading}
               />
             </Form.Item>
             <Form.Item
@@ -119,10 +149,15 @@ function SignUpForm() {
                 required: true,
                 message: 'Insira sua senha'
               }]}
+              {...passwordError && {
+                help: passwordError,
+                validateStatus: 'error'
+              }}
             >
               <PasswordInput
                 prefix={<LockOutlined style={{ fontSize: 15, color: '#bfbfbf', marginRight: 5 }} />}
-                placeholder="Digite sua senha" 
+                placeholder="Digite sua senha"
+                disabled={isLoading}
               />
             </Form.Item>
             <Form.Item
@@ -133,10 +168,20 @@ function SignUpForm() {
                 message: 'Aceite os termos'
               }]}
             >
-              <Checkbox style={{ color: '#5f5f5f', marginLeft: 20 }}>Eu concordo com os <a href="/">termos de uso</a></Checkbox>
+              <Checkbox 
+                style={{ color: '#5f5f5f', marginLeft: 20 }}
+                disabled={isLoading}
+              >
+                Eu concordo com os <a href="/">termos de uso</a>
+              </Checkbox>
             </Form.Item>
             <Form.Item>
-              <SubmitButton htmlType="submit">Cadastrar</SubmitButton>
+              <SubmitButton 
+                htmlType="submit"
+                loading={isLoading}
+              >
+                Cadastrar
+              </SubmitButton>
             </Form.Item>
           </Form>
         </FormInputs>
