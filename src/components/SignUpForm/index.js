@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import { Context } from '../../Context/SignContext';
 
 import api from '../../api';
 
@@ -33,26 +34,26 @@ function SignUpForm() {
   const [passwordError, setPasswordError] = useState('');
   const [isLoading, setIsLoading] = useState(false);
 
+  const { handleSignedUp } = useContext(Context);
+
   const onSubmitForm = formValues => {
-    setIsLoading(true);
+    // setIsLoading(true);
 
-    const { name, email, birthDate, password } = formValues;
-    const formData = {
-      name,
-      email,
-      birthDate: birthDate._d,
-      password
-    };
+    // const { name, email, birthDate, password } = formValues;
+    // const formData = {
+    //   name,
+    //   email,
+    //   birthDate: birthDate._d,
+    //   password
+    // };
 
-    api.post('/user/store', formData)
-      .then(resp => console.log(resp))
-      .catch(error => onSubmitError(error.response.data));
+    // api.post('/user/store', formData)
+    //   .then(resp => onSubmitSuccess())
+    //   .catch(error => onSubmitError(error.response.data));
   };
 
   const onSubmitError = errorData => {
-    setIsLoading(false);
-    setEmailError('');
-    setPasswordError('');
+    resetStates();
 
     errorData.map(error => {
       switch (error.code) {
@@ -64,6 +65,19 @@ function SignUpForm() {
           return console.log(error);
       }
     });
+  };
+
+  const onSubmitSuccess = () => {
+    resetStates();
+    handleSignedUp();
+
+    window.history.pushState('/');
+  };
+
+  const resetStates = () => {
+    setIsLoading(false);
+    setEmailError('');
+    setPasswordError('');
   };
 
   const clearCustomErrors = formError => {

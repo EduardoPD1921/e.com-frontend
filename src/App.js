@@ -1,7 +1,12 @@
 import Router from './router';
+import { SignContext } from './Context/SignContext';
 
 function App() {
-  return <Router />
+  return (
+    <SignContext>
+      <Router />
+    </SignContext>
+  );
 };
 
 export default App;
