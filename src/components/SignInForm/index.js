@@ -9,6 +9,7 @@ import {
   SignInFormArea,
   SignInSection,
   FormTitle,
+  FormIllustrationSection,
   FormIllustration,
   FormInputs,
   FormInput,
@@ -25,9 +26,9 @@ function SignInForm({ onSubmitForm }) {
       <SignInFormArea>
         <FormTitle>Iniciar sessão de usuário</FormTitle>
         <SignInSection>
-          <FormIllustration>
-            <img src={formIllustration} width={300} alt="Homem no celular" />
-          </FormIllustration>
+          <FormIllustrationSection>
+            <FormIllustration src={formIllustration} alt="Homem no celular" />
+          </FormIllustrationSection>
           <FormInputs>
             <Form
               requiredMark={false}

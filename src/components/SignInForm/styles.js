@@ -8,6 +8,10 @@ export const SignInFormSection = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+
+  @media(max-width: 1350px) {
+    height: 1100px;
+  }
 `;
 
 export const SignInFormArea = styled.div`
@@ -23,6 +27,11 @@ export const SignInFormArea = styled.div`
 
   -webkit-box-shadow: 4px 1px 15px -2px rgba(0,0,0,0.2); 
   box-shadow: 4px 1px 15px -2px rgba(0,0,0,0.2);
+
+  @media(max-width: 1350px) {
+    height: 800px;
+    width: 90%;
+  }
 `;
 
 export const SignInSection = styled.div`
@@ -30,6 +39,10 @@ export const SignInSection = styled.div`
 
   display: flex;
   flex-direction: row;
+
+  @media(max-width: 1350px) {
+    flex-direction: column;
+  }
 `;
 
 export const FormTitle = styled.div`
@@ -43,12 +56,20 @@ export const FormTitle = styled.div`
   font-family: robotoBold;
 `;
 
-export const FormIllustration = styled.div`
+export const FormIllustrationSection = styled.div`
   flex: 1;
 
   display: flex;
   justify-content: center;
   align-items: center;
+`;
+
+export const FormIllustration = styled.img`
+  width: 300px;
+
+  @media(max-width: 500px) {
+    width: 250px;
+  }
 `;
 
 export const FormInputs = styled.div`
@@ -62,9 +83,6 @@ export const FormInputs = styled.div`
 
 const baseInputStyle = css`
   && {
-    width: 120%;
-
-    /* background: #efefef !important; */
     border-top: none;
     border-left: none;
     border-right: none;
@@ -96,7 +114,7 @@ export const FormLabel = styled.label`
 
 export const SubmitButton = styled(Button)`
   && {
-    width: 120%;
+    width: 100%;
 
     color: white;
 
@@ -111,7 +129,7 @@ export const SubmitButton = styled(Button)`
 `;
 
 export const FormExtraInfo = styled.div`
-  width: 120%;
+  width: 100%;
 
   display: flex;
   align-items: center;
