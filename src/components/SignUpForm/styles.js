@@ -8,6 +8,14 @@ export const FormSection = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+
+  @media(max-width: 1300px) {
+    height: 1500px;
+  }
+
+  @media(max-width: 700px) {
+    height: 1000px;
+  }
 `;
 
 export const FormShape = styled.div`
@@ -22,6 +30,16 @@ export const FormShape = styled.div`
   box-shadow: 4px 1px 15px -2px rgba(0,0,0,0.2);
 
   background: white;
+
+  @media(max-width: 1300px) {
+    flex-direction: column;
+    height: 1200px;
+  }
+
+  @media(max-width: 700px) {
+    height: 600px;
+    width: 100%;
+  }
 `;
 
 export const FormMarketingInfo = styled.div`
@@ -33,11 +51,21 @@ export const FormMarketingInfo = styled.div`
 
   color: white;
 
+  border-radius: 8px 0 0 8px;
+
   background: rgb(255,139,21);
   background: -moz-linear-gradient(130deg, rgba(255,139,21,1) 49%, rgba(255,177,0,1) 100%);
   background: -webkit-linear-gradient(130deg, rgba(255,139,21,1) 49%, rgba(255,177,0,1) 100%);
   background: linear-gradient(130deg, rgba(255,139,21,1) 49%, rgba(255,177,0,1) 100%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ff8b15",endColorstr="#ffb100",GradientType=1); 
+
+  @media(max-width: 1300px) {
+    border-radius: 8px 8px 0 0;
+  }
+
+  @media(max-width: 700px) {
+    display: none;
+  }
 `;
 
 export const MarketingSection = styled.div`
@@ -51,6 +79,14 @@ export const MarketingSection = styled.div`
 
 export const TextCard = styled.div`
   display: flex;
+
+  @media(max-width: 1300px) {
+    margin: 50px;
+  }
+
+  @media(max-width: 700px) {
+    margin: 0;
+  }
 `;
 
 export const IconShape = styled.div`
@@ -87,6 +123,14 @@ export const CardIcon = styled.div`
   color: white;
 `;
 
+export const FormTitle = styled.div`
+  margin: 20px;
+
+  color: #5f5f5f;
+  font-size: 16px;
+  font-family: robotoBold;
+`;
+
 export const FormInputs = styled.div`
   flex: 3;
 
@@ -94,11 +138,15 @@ export const FormInputs = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
+
+  @media(max-width: 1300px) {
+    margin-top: 20px;
+  }
 `;
 
 const baseInputStyle = css`
   && {
-    width: 120%;
+    width: 100%;
     
     border-radius: 7px;
   }
@@ -125,7 +173,7 @@ export const SubmitButton = styled(Button)`
   && {
     margin-top: 10px;
 
-    width: 120%;
+    width: 100%;
 
     background: #ff8b15;
 

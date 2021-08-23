@@ -19,6 +19,7 @@ import {
   FormShape,
   FormMarketingInfo,
   MarketingSection,
+  FormTitle,
   FormInputs,
   FormInput,
   DateInput,
@@ -102,6 +103,7 @@ function SignUpForm() {
           </MarketingSection>
         </FormMarketingInfo>
         <FormInputs>
+          <FormTitle>Cadastro de usuário</FormTitle>
           <Form
             requiredMark={false}
             name="signUpForm"
@@ -184,7 +186,7 @@ function SignUpForm() {
               }]}
             >
               <Checkbox 
-                style={{ color: '#5f5f5f', marginLeft: 20 }}
+                style={{ color: '#5f5f5f' }}
                 disabled={isLoading}
               >
                 Eu concordo com os <a href="/">termos de uso</a>

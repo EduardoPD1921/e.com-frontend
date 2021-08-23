@@ -15,7 +15,7 @@
 - [x] Slider de produtos na home
 - [x] Footer
 - [ ] Responsividade dos cards de produtos
-- [ ] Responsividade dos formulários
+- [x] Responsividade dos formulários
 - [ ] Sistema de login
 - [x] Sistema de cadastro de usuários
 - [ ] Página do produto
