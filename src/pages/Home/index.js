@@ -1,6 +1,8 @@
 import React, { useEffect, useContext } from 'react';
 import { Context } from '../../Context/SignUpContext';
 
+import { message } from 'antd';
+
 import Carousel from 'react-multi-carousel';
 
 import {
@@ -19,7 +21,11 @@ function Home() {
   const { setIsSignUp, isSignUp } = useContext(Context);
 
   useEffect(() => {
-    console.log(isSignUp);
+    if (isSignUp) {
+      message.success('Conta criada com sucesso!');
+
+      setIsSignUp(false);
+    };
   });
   
   const responsive = {
