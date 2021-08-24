@@ -1,5 +1,6 @@
 import React, { useState, useContext } from 'react';
-import { Context } from '../../Context/SignContext';
+import { Context } from '../../Context/SignUpContext';
+import { Redirect } from 'react-router-dom';
 
 import api from '../../api';
 
@@ -33,23 +34,24 @@ function SignUpForm() {
   const [emailError, setEmailError] = useState('');
   const [passwordError, setPasswordError] = useState('');
   const [isLoading, setIsLoading] = useState(false);
+  const [redirect, setRedirect] = useState(false);
 
-  const { handleSignedUp } = useContext(Context);
+  const { setIsSignUp } = useContext(Context);
 
   const onSubmitForm = formValues => {
-    // setIsLoading(true);
+    setIsLoading(true);
 
-    // const { name, email, birthDate, password } = formValues;
-    // const formData = {
-    //   name,
-    //   email,
-    //   birthDate: birthDate._d,
-    //   password
-    // };
+    const { name, email, birthDate, password } = formValues;
+    const formData = {
+      name,
+      email,
+      birthDate: birthDate._d,
+      password
+    };
 
-    // api.post('/user/store', formData)
-    //   .then(resp => onSubmitSuccess())
-    //   .catch(error => onSubmitError(error.response.data));
+    api.post('/user/store', formData)
+      .then(resp => onSubmitSuccess())
+      .catch(error => onSubmitError(error.response.data));
   };
 
   const onSubmitError = errorData => {
@@ -68,10 +70,8 @@ function SignUpForm() {
   };
 
   const onSubmitSuccess = () => {
-    resetStates();
-    handleSignedUp();
-
-    window.history.pushState('/');
+    setIsSignUp(true);
+    setRedirect(true);
   };
 
   const resetStates = () => {
@@ -79,6 +79,11 @@ function SignUpForm() {
     setEmailError('');
     setPasswordError('');
   };
+
+  // const tmp = () => {
+  //   setTest(true);
+  //   setRedirect(true);
+  // };
 
   const clearCustomErrors = formError => {
     formError.errorFields.map(error => {
@@ -217,6 +222,7 @@ function SignUpForm() {
           </Form>
         </FormInputs>
       </FormShape>
+      {redirect ? <Redirect to="/home" /> : null}
     </FormSection>
   );
 };

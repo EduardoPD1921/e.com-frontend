@@ -1,5 +1,5 @@
 import React, { useEffect, useContext } from 'react';
-import { Context } from '../../Context/SignContext';
+import { Context } from '../../Context/SignUpContext';
 
 import Carousel from 'react-multi-carousel';
 
@@ -16,12 +16,12 @@ import Footer from '../../components/Footer';
 import itemImage from '../../static/images/itemImage.png';
 
 function Home() {
-  const { setIsSignedUp, isSignedUp } = useContext(Context);
+  const { setIsSignUp, isSignUp } = useContext(Context);
 
   useEffect(() => {
-    console.log(isSignedUp);
+    console.log(isSignUp);
   });
-
+  
   const responsive = {
     desktop: {
       breakpoint: { max: 3000, min: 1024 },

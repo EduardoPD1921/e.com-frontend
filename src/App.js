@@ -1,11 +1,11 @@
 import Router from './router';
-import { SignContext } from './Context/SignContext';
+import { SignUpContext } from './Context/SignUpContext';
 
 function App() {
   return (
-    <SignContext>
+    <SignUpContext>
       <Router />
-    </SignContext>
+    </SignUpContext>
   );
 };
 
