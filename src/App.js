@@ -1,11 +1,14 @@
 import Router from './router';
 import { SignUpProvider } from './Context/SignUpContext';
+import { AuthProvider } from './Context/AuthContext';
 
 function App() {
   return (
-    <SignUpProvider>
-      <Router />
-    </SignUpProvider>
+    <AuthProvider>
+      <SignUpProvider>
+        <Router />
+      </SignUpProvider>
+    </AuthProvider>
   );
 };
 

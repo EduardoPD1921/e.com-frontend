@@ -8,17 +8,11 @@ import { SignInSection } from './styles';
 
 
 function SignIn() {
-  const onSubmitForm = formValues => {
-    console.log(formValues);
-  };
-
   return (
     <SignInSection>
       <Navbar />
 
-      <SignInForm
-        onSubmitForm={onSubmitForm}
-      />
+      <SignInForm />
 
       <Footer />
     </SignInSection>

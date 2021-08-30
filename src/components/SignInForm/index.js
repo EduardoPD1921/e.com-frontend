@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { Context } from '../../Context/AuthContext';
 
 import { Form, Checkbox, Divider } from 'antd';
 
@@ -20,7 +21,9 @@ import {
   FormLink
 } from './styles';
 
-function SignInForm({ onSubmitForm }) {
+function SignInForm() {
+  const { handleLogin } = useContext(Context);
+
   return (
     <SignInFormSection>
       <SignInFormArea>
@@ -35,7 +38,7 @@ function SignInForm({ onSubmitForm }) {
               name="signInForm"
               layout="vertical"
               initialValues={{ remember: false }}
-              onFinish={onSubmitForm}
+              onFinish={handleLogin}
             >
               <Form.Item
                 label={<FormLabel>E-mail</FormLabel>}
