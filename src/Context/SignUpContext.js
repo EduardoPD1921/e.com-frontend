@@ -2,7 +2,7 @@ import React, { createContext, useState } from 'react';
 
 const Context = createContext();
 
-function SignUpContext({ children }) {
+function SignUpProvider({ children }) {
   const [isSignUp, setIsSignUp] = useState(false);
 
   return (
@@ -12,4 +12,4 @@ function SignUpContext({ children }) {
   );
 };
 
-export { Context, SignUpContext };
+export { Context, SignUpProvider };
