@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 
-import HeaderItems from '../Header/HeaderItems';
+import NavbarItems from './NavbarItems';
 import MobileMenu from './MobileMenu';
+import ShoppingCart from './ShoppingCart';
 
 import {
   PageHeader,
@@ -11,8 +12,7 @@ import {
   MenuButton
 } from './styles';
 
-import { Button, Badge } from 'antd';
-import { ShoppingOutlined, MenuOutlined } from '@ant-design/icons';
+import { MenuOutlined } from '@ant-design/icons';
 
 function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -28,21 +28,17 @@ function Header() {
   return (
     <>
       <PageHeader>
-        <Logo>
+        <Logo href="/home">
           Logo
         </Logo>
         <MenuButton>
           <MenuOutlined onClick={showMobileMenu} style={{ fontSize: 20, color: '#ffff', margin: 10 }} />
         </MenuButton>
         <Items>
-          <HeaderItems />
+          <NavbarItems />
         </Items>
         <ShopCart>
-          <Button type="link">
-            <Badge size="small" count={2}>
-              <ShoppingOutlined style={{ fontSize: 20, color: '#efefef' }} />
-            </Badge>
-          </Button>
+          <ShoppingCart />
         </ShopCart>
       </PageHeader>
       {/* responsive menu */}

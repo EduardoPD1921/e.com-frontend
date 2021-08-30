@@ -1,9 +1,10 @@
 import React from 'react';
 
-import HeaderItems from '../HeaderItems';
+import NavbarItems from '../NavbarItems';
+import ShoppingCart from '../ShoppingCart';
 
-import { Drawer, Divider, Badge, Button } from 'antd';
-import { CloseOutlined, ShoppingOutlined } from '@ant-design/icons';
+import { Drawer, Divider } from 'antd';
+import { CloseOutlined } from '@ant-design/icons';
 
 import {
   MobileMenuTitle,
@@ -29,12 +30,8 @@ function MobileMenu({ closeMobileMenu, mobileMenuOpen }) {
       </MobileMenuTitle>
       <Divider style={{ marginTop: 10, backgroundColor: '#efefef' }} />
       <MobileMenuItems>
-        <HeaderItems isMobileMenu={true} />
-        <Button style={{ marginTop: 5 }} type="link">
-          <Badge size="small" count={2}>
-            <ShoppingOutlined style={{ fontSize: 20, color: '#efefef' }} />
-          </Badge>
-        </Button>
+        <NavbarItems isMobileMenu={true} />
+        <ShoppingCart />
       </MobileMenuItems>
     </Drawer>
   );

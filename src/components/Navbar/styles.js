@@ -13,7 +13,7 @@ export const PageHeader = styled.header`
   background: #ff8b15;
 `;
 
-export const Logo = styled.div`
+export const Logo = styled.a`
   flex: 1;
 
   display: flex;
@@ -22,6 +22,15 @@ export const Logo = styled.div`
 
   font-family: robotoBold;
   font-size: 20px;
+  color: #efefef;
+
+  &:hover {
+    color: #efefef;
+  }
+
+  &:visited {
+    color: #efefef;
+  }
 
   @media(max-width: 780px) {
     margin-left: 10px;

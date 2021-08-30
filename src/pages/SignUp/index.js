@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Header from '../../components/Header';
+import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
 import SignUpForm from '../../components/SignUpForm';
 
@@ -9,7 +9,7 @@ import { SignUpSection } from './styles';
 function SignUp() {
   return (
     <SignUpSection>
-      <Header />
+      <Navbar />
 
       <SignUpForm />
 
