@@ -1,15 +1,15 @@
 import React, { createContext, useState } from 'react';
 
-const Context = createContext();
+const SignUpContext = createContext();
 
 function SignUpProvider({ children }) {
   const [isSignUp, setIsSignUp] = useState(false);
 
   return (
-    <Context.Provider value={{ setIsSignUp, isSignUp }}>
+    <SignUpContext.Provider value={{ setIsSignUp, isSignUp }}>
       {children}
-    </Context.Provider>
+    </SignUpContext.Provider>
   );
 };
 
-export { Context, SignUpProvider };
+export { SignUpContext, SignUpProvider };

@@ -1,5 +1,5 @@
 import React, { useEffect, useContext } from 'react';
-import { Context } from '../../Context/SignUpContext';
+import { SignUpContext } from '../../Context/SignUpContext';
 
 import { message } from 'antd';
 
@@ -18,7 +18,7 @@ import Footer from '../../components/Footer';
 import itemImage from '../../static/images/itemImage.png';
 
 function Home() {
-  const { setIsSignUp, isSignUp } = useContext(Context);
+  const { setIsSignUp, isSignUp } = useContext(SignUpContext);
 
   useEffect(() => {
     if (isSignUp) {
@@ -50,7 +50,6 @@ function Home() {
     <HomeSection>
       <Navbar />
       <Banner />
-
       <CardSectionTitle>
         Produtos novos
       </CardSectionTitle>

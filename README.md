@@ -17,7 +17,7 @@
 - [x] Responsividade do footer
 - [ ] Responsividade dos cards de produtos
 - [x] Responsividade dos formulários
-- [ ] Sistema de login
+- [x] Sistema de login
 - [x] Sistema de cadastro de usuários
 - [ ] Página do produto
 

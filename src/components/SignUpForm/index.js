@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react';
-import { Context } from '../../Context/SignUpContext';
+import { SignUpContext } from '../../Context/SignUpContext';
 import { Redirect } from 'react-router-dom';
 
 import api from '../../api';
@@ -36,7 +36,7 @@ function SignUpForm() {
   const [isLoading, setIsLoading] = useState(false);
   const [redirect, setRedirect] = useState(false);
 
-  const { setIsSignUp } = useContext(Context);
+  const { setIsSignUp } = useContext(SignUpContext);
 
   const onSubmitForm = formValues => {
     setIsLoading(true);

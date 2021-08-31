@@ -1,5 +1,7 @@
 import React, { useContext } from 'react';
-import { Context } from '../../Context/AuthContext';
+import { AuthContext } from '../../Context/AuthContext';
+
+import api from '../../api';
 
 import { Form, Checkbox, Divider } from 'antd';
 
@@ -22,7 +24,20 @@ import {
 } from './styles';
 
 function SignInForm() {
-  const { handleLogin } = useContext(Context);
+  const { handleAuth } = useContext(AuthContext);
+
+  function handleLogin({ email, password }) {
+    const data = {
+      email,
+      password
+    };
+
+    api.post('/user/login', data)
+      .then(resp => {
+        handleAuth(resp.data.token);
+      })
+      .catch(error => console.log(error.response));
+  };
 
   return (
     <SignInFormSection>
