@@ -1,7 +1,7 @@
 import React from 'react';
 
 import NavbarItems from '../NavbarItems';
-import ShoppingCart from '../ShoppingCart';
+import UserOptions from '../UserOptions';
 
 import { Drawer, Divider } from 'antd';
 import { CloseOutlined } from '@ant-design/icons';
@@ -31,7 +31,7 @@ function MobileMenu({ closeMobileMenu, mobileMenuOpen }) {
       <Divider style={{ marginTop: 10, backgroundColor: '#efefef' }} />
       <MobileMenuItems>
         <NavbarItems isMobileMenu={true} />
-        <ShoppingCart />
+        <UserOptions />
       </MobileMenuItems>
     </Drawer>
   );

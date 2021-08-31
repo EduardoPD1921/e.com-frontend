@@ -76,7 +76,8 @@ export const BannerButtons = styled.div`
 
 export const ActionButton = styled(Button)`
   margin: 0 10px 0 10px;
-  width: 12vw;
+  /* width: 12vw; */
+  width: ${props => props.auth ? '70%' : '12vw'};
 
   color: ${props => props.product ? '#ff8b15' : '#efefef'};
   background: ${props => props.product ? '#efefef' : '#ff8b15'};

@@ -1,6 +1,8 @@
 import React, { useContext } from 'react';
 import { AuthContext } from '../../Context/AuthContext';
 
+import { Redirect } from 'react-router-dom';
+
 import api from '../../api';
 
 import { Form, Checkbox, Divider } from 'antd';
@@ -24,7 +26,7 @@ import {
 } from './styles';
 
 function SignInForm() {
-  const { handleAuth } = useContext(AuthContext);
+  const { handleAuth, authenticated } = useContext(AuthContext);
 
   function handleLogin({ email, password }) {
     const data = {
@@ -37,6 +39,12 @@ function SignInForm() {
         handleAuth(resp.data.token);
       })
       .catch(error => console.log(error.response));
+  };
+
+  function redirectToHome() {
+    if (authenticated) {
+      return <Redirect to="/home" />
+    };
   };
 
   return (
@@ -95,6 +103,7 @@ function SignInForm() {
           </FormInputs>
         </SignInSection>
       </SignInFormArea>
+      {redirectToHome()}
     </SignInFormSection>
   );
 };

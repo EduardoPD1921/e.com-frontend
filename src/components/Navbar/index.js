@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 import NavbarItems from './NavbarItems';
 import MobileMenu from './MobileMenu';
-import ShoppingCart from './ShoppingCart';
+import UserOptions from './UserOptions';
 
 import {
   PageHeader,
@@ -38,7 +38,7 @@ function Header() {
           <NavbarItems />
         </Items>
         <ShopCart>
-          <ShoppingCart />
+          <UserOptions />
         </ShopCart>
       </PageHeader>
       {/* responsive menu */}

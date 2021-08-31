@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 
-import { Drawer, Button, Badge } from 'antd';
-import { ShoppingOutlined } from '@ant-design/icons';
+import { Drawer } from 'antd';
+import { UserOutlined } from '@ant-design/icons';
 
-function ShoppingCart() {
+function UserOptions() {
   const [isDrawerVisible, setIsDrawerVisible] = useState(false);
 
   function showDrawer() {
@@ -16,11 +16,7 @@ function ShoppingCart() {
 
   return (
     <>
-      <Button onClick={showDrawer} type="link">
-        <Badge size="small" count={2}>
-          <ShoppingOutlined style={{ fontSize: 20, color: '#efefef' }} />
-        </Badge>
-      </Button>
+      <UserOutlined onClick={showDrawer} style={{ fontSize: 20, color: '#efefef' }} />
       <Drawer
         title="Test drawer"
         placement="right"
@@ -38,4 +34,4 @@ function ShoppingCart() {
   );
 };
 
-export default ShoppingCart;
+export default UserOptions;
