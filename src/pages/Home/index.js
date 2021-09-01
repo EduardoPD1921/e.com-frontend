@@ -1,7 +1,10 @@
-import React, { useEffect, useContext } from 'react';
+import React, { useEffect, useContext, useState } from 'react';
 import { SignUpContext } from '../../Context/SignUpContext';
 
+import api from '../../api';
+
 import { message } from 'antd';
+import { LoadingOutlined } from '@ant-design/icons';
 
 import Carousel from 'react-multi-carousel';
 
@@ -18,6 +21,9 @@ import Footer from '../../components/Footer';
 import itemImage from '../../static/images/itemImage.png';
 
 function Home() {
+  const [products, setProducts] = useState();
+  const [isLoading, setIsLoading] = useState(true);
+
   const { setIsSignUp, isSignUp } = useContext(SignUpContext);
 
   useEffect(() => {
@@ -26,6 +32,13 @@ function Home() {
 
       setIsSignUp(false);
     };
+
+    api.get('/product/show')
+      .then(resp => {
+        setProducts(resp.data);
+        setIsLoading(false);
+      })
+      .catch(error => console.log(error.response));
   });
   
   const responsive = {
@@ -46,6 +59,22 @@ function Home() {
     }
   };
 
+  function renderProducts() {
+    if (isLoading) {
+      return <LoadingOutlined />
+    };
+
+    return products.map(product => {
+      return (
+        <ProductCard
+          title={product.title}
+          image={product.image}
+          price={product.price} 
+        />
+      );
+    });
+  };
+
   return (
     <HomeSection>
       <Navbar />
@@ -57,11 +86,12 @@ function Home() {
         responsive={responsive}
         infinite={true}
       >
-        <ProductCard
+        {renderProducts()}
+        {/* <ProductCard
           image={itemImage}
           title="Relógio Rolex"
           price="R$1450,00" 
-        />
+        /> */}
       </Carousel>
 
       <Footer />

@@ -22,6 +22,7 @@
 - [ ] Tratar os erros de login
 - [ ] Renderizar produtos cadastrados mais recentemente
 - [ ] Sistema de carrinho de compras funcional
+- [ ] Sistema de like em produtos
 - [ ] Página do produto
 
 ## :large_orange_diamond: Identidade visual

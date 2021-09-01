@@ -11,7 +11,7 @@ import {
   CardShow
 } from './styles';
 
-function ProductCard({ image, title, price, liked }) {
+function ProductCard({ id, title, image, price, liked }) {
   const renderLikedIcon = () => {
     if (liked) {
       return <HeartFilled style={{ fontSize: 15, color: '#e0245e' }} />
