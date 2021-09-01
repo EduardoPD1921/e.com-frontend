@@ -19,6 +19,9 @@
 - [x] Responsividade dos formulários
 - [x] Sistema de login
 - [x] Sistema de cadastro de usuários
+- [ ] Tratar os erros de login
+- [ ] Renderizar produtos cadastrados mais recentemente
+- [ ] Sistema de carrinho de compras funcional
 - [ ] Página do produto
 
 ## :large_orange_diamond: Identidade visual

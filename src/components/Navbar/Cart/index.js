@@ -16,7 +16,7 @@ function Cart() {
 
   return (
     <>
-      <Badge count={2} size="small">
+      <Badge size="small">
         <ShoppingCartOutlined onClick={showDrawer} style={{ fontSize: 20, color: '#efefef' }} />
       </Badge>
       <Drawer
