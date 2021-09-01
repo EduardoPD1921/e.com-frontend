@@ -22,7 +22,7 @@ function AuthProvider({ children }) {
   };
 
   return (
-    <AuthContext.Provider value={{ handleAuth, authenticated }}>
+    <AuthContext.Provider value={{ authenticated, handleAuth }}>
       {children}
     </AuthContext.Provider>
   );
