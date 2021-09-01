@@ -21,8 +21,15 @@ function AuthProvider({ children }) {
     setAuthenticated(true);
   };
 
+  function handleLogout() {
+    setAuthenticated(false);
+    localStorage.removeItem('token');
+    api.defaults.headers.Authorization = null;
+    window.location.replace('/signIn');
+  };
+
   return (
-    <AuthContext.Provider value={{ authenticated, handleAuth }}>
+    <AuthContext.Provider value={{ authenticated, handleAuth, handleLogout }}>
       {children}
     </AuthContext.Provider>
   );

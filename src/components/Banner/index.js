@@ -15,7 +15,7 @@ import {
 import tvImage from '../../static/images/tvImage.png';
 
 function Banner() {
-  const { authenticated } = useContext(AuthContext);
+  const { authenticated, handleLogout } = useContext(AuthContext);
 
   function renderAuthButton() {
     if (authenticated) {
@@ -23,6 +23,7 @@ function Banner() {
         <ActionButton
           size="large"
           shape="round"
+          onClick={handleLogout}
         >
           Sair
         </ActionButton>
