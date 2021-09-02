@@ -12,12 +12,12 @@ import {
   CardShow
 } from './styles';
 
-function ProductCard({ id, title, image, price, liked }) {
-  const { handleLike } = useContext(LikeContext);
+function ProductCard({ id, title, image, price }) {
+  const { handleLike, handleUnlike, likedProducts } = useContext(LikeContext);
 
   const renderLikedIcon = () => {
-    if (liked) {
-      return <HeartFilled style={{ fontSize: 15, color: '#e0245e' }} />
+    if (likedProducts.includes(id)) {
+      return <HeartFilled onClick={() => handleUnlike(id)} style={{ fontSize: 15, color: '#e0245e' }} />
     };
 
     return <HeartOutlined onClick={() => handleLike(id)} style={{ fontSize: 15, color: '#c8c8c8' }} />

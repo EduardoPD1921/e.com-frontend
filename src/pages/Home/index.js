@@ -1,5 +1,6 @@
 import React, { useEffect, useContext, useState } from 'react';
 import { SignUpContext } from '../../Context/SignUpContext';
+import { LikeContext } from '../../Context/LikeContext';
 
 import api from '../../api';
 
@@ -25,6 +26,7 @@ function Home() {
   const [isLoading, setIsLoading] = useState(true);
 
   const { setIsSignUp, isSignUp } = useContext(SignUpContext);
+  const { likedProducts } = useContext(LikeContext);
 
   useEffect(() => {
     if (isSignUp) {
@@ -68,6 +70,7 @@ function Home() {
     return products.map(product => {
       return (
         <ProductCard
+          id={product._id}
           title={product.title}
           image={product.image}
           price={product.price} 
@@ -76,17 +79,11 @@ function Home() {
     });
   };
 
-  function teste() {
-    api.put('/user/likeProduct')
-      .then(resp => console.log(resp))
-      .catch(error => console.log(error.response));
-  };
-
   return (
     <HomeSection>
       <Navbar />
       <Banner />
-      <button onClick={teste}>teste</button>
+      <button onClick={() => console.log(likedProducts)}>teste</button>
       <CardSectionTitle>
         Produtos novos
       </CardSectionTitle>

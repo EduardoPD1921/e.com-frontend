@@ -16,6 +16,7 @@
 - [x] Footer
 - [x] Responsividade do footer
 - [x] Resolver bug de loop de requisição para a rota show
+- [ ] Tratar exceções
 - [ ] Responsividade dos cards de produtos
 - [x] Responsividade dos formulários
 - [x] Sistema de login
