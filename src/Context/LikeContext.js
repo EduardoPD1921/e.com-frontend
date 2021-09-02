@@ -1,10 +1,16 @@
-import React, { createContext, useState } from 'react';
+import React, { createContext, useState, useEffect } from 'react';
 import api from '../api';
 
 const LikeContext = createContext();
 
 function LikeProvider({ children }) {
   const [likedProducts, setLikedProducts] = useState([]);
+
+  useEffect(() => {
+    api.get('/user/getLikedProducts')
+      .then(resp => setLikedProducts(resp.data.likedProducts))
+      .catch(error => console.log(error.response));
+  }, []);
 
   function handleLike(productId) {
     const data = { productId };
@@ -19,8 +25,7 @@ function LikeProvider({ children }) {
     const data = { productId };
     api.put('/user/unlikeProduct', data)
       .then(resp => {
-        // setLikedProducts(prevState => [...prevState.filter(e => e !== productId)])
-        setLikedProducts(prevState => [...prevState.filter(e => e !== productId)]);
+        setLikedProducts(prevState => prevState.filter(e => e !== productId));
       })
       .catch(error => console.log(error.response));
   }

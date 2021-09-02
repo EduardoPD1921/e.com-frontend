@@ -1,6 +1,5 @@
 import React, { useEffect, useContext, useState } from 'react';
 import { SignUpContext } from '../../Context/SignUpContext';
-import { LikeContext } from '../../Context/LikeContext';
 
 import api from '../../api';
 
@@ -26,7 +25,6 @@ function Home() {
   const [isLoading, setIsLoading] = useState(true);
 
   const { setIsSignUp, isSignUp } = useContext(SignUpContext);
-  const { likedProducts } = useContext(LikeContext);
 
   useEffect(() => {
     if (isSignUp) {
@@ -83,7 +81,6 @@ function Home() {
     <HomeSection>
       <Navbar />
       <Banner />
-      <button onClick={() => console.log(likedProducts)}>teste</button>
       <CardSectionTitle>
         Produtos novos
       </CardSectionTitle>
