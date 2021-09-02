@@ -29,17 +29,18 @@ function Home() {
   useEffect(() => {
     if (isSignUp) {
       message.success('Conta criada com sucesso!');
-
       setIsSignUp(false);
     };
+  });
 
+  useEffect(() => {
     api.get('/product/show')
       .then(resp => {
         setProducts(resp.data);
         setIsLoading(false);
       })
       .catch(error => console.log(error.response));
-  });
+  }, []);
   
   const responsive = {
     desktop: {

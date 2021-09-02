@@ -15,7 +15,7 @@
 - [x] Slider de produtos na home
 - [x] Footer
 - [x] Responsividade do footer
-- [ ] Resolver bug de loop de requisição para a rota show
+- [x] Resolver bug de loop de requisição para a rota show
 - [ ] Responsividade dos cards de produtos
 - [x] Responsividade dos formulários
 - [x] Sistema de login
