@@ -1,11 +1,11 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { AuthContext } from '../../Context/AuthContext';
 
 import { Redirect } from 'react-router-dom';
 
 import api from '../../api';
 
-import { Form, Checkbox, Divider } from 'antd';
+import { Form, Checkbox, Divider, message } from 'antd';
 
 import formIllustration from '../../static/images/formIllustration.svg';
 
@@ -26,9 +26,15 @@ import {
 } from './styles';
 
 function SignInForm() {
+  const [emailError, setEmailError] = useState('');
+  const [passwordError, setPasswordError] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
+
   const { handleAuth, authenticated } = useContext(AuthContext);
 
   function handleLogin({ email, password }) {
+    setIsLoading(true);
+
     const data = {
       email,
       password
@@ -36,9 +42,44 @@ function SignInForm() {
 
     api.post('/user/login', data)
       .then(resp => {
+        setIsLoading(false);
         handleAuth(resp.data.token);
       })
-      .catch(error => console.log(error.response));
+      .catch(error => onErrorLoginHandler(error.response.data));
+  };
+
+  function onErrorLoginHandler(errorData) {
+    resetStates();
+
+    switch (errorData.code) {
+      case 'wrong-email':
+        return setEmailError(errorData.message);
+      case 'wrong-password':
+        return setPasswordError(errorData.message);
+      default:
+        message.error('Erro interno');
+        console.log(errorData);
+    };
+  };
+
+  function resetStates() {
+    setIsLoading(false);
+    setEmailError('');
+    setPasswordError('');
+  };
+
+  function clearCustomErrors(formError) {
+    formError.errorFields.map(error => {
+      if (error.name[0] === 'email') {
+        return setEmailError('');
+      };
+
+      if (error.name[0] === 'password') {
+        return setPasswordError('');
+      };
+
+      return {};
+    });
   };
 
   function redirectToHome() {
@@ -62,6 +103,7 @@ function SignInForm() {
               layout="vertical"
               initialValues={{ remember: false }}
               onFinish={handleLogin}
+              onFinishFailed={clearCustomErrors}
             >
               <Form.Item
                 label={<FormLabel>E-mail</FormLabel>}
@@ -71,8 +113,12 @@ function SignInForm() {
                   type: 'email',
                   message: 'Insira seu e-mail'
                 }]}
+                {...emailError && {
+                  help: emailError,
+                  validateStatus: 'error'
+                }}
               >
-                <FormInput />
+                <FormInput disabled={isLoading} />
               </Form.Item>
               <Form.Item
                 label={<FormLabel>Senha</FormLabel>}
@@ -81,16 +127,20 @@ function SignInForm() {
                   required: true,
                   message: 'Insira sua senha'
                 }]}
+                {...passwordError && {
+                  help: passwordError,
+                  validateStatus: 'error'
+                }}
               >
-                <FormInputPassword />
+                <FormInputPassword disabled={isLoading} />
               </Form.Item>
               <Form.Item
                 valuePropName="checked" name="remember"
               >
-                <Checkbox style={{ color: '#5f5f5f' }}>Lembrar-me</Checkbox>
+                <Checkbox disabled={isLoading} style={{ color: '#5f5f5f' }}>Lembrar-me</Checkbox>
               </Form.Item>
               <Form.Item>
-                <SubmitButton htmlType="submit">Entrar</SubmitButton>
+                <SubmitButton loading={isLoading} htmlType="submit">Entrar</SubmitButton>
               </Form.Item>
               <FormExtraInfo>
                 <div style={{ color: '#5f5f5f' }}>

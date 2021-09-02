@@ -59,9 +59,9 @@ function SignUpForm() {
 
     errorData.map(error => {
       switch (error.code) {
-        case 1000:
+        case 'short-password':
           return setPasswordError(error.message);
-        case 2000:
+        case 'email-already-in-use':
           return setEmailError(error.message);
         default:
           return console.log(error);
@@ -79,11 +79,6 @@ function SignUpForm() {
     setEmailError('');
     setPasswordError('');
   };
-
-  // const tmp = () => {
-  //   setTest(true);
-  //   setRedirect(true);
-  // };
 
   const clearCustomErrors = formError => {
     formError.errorFields.map(error => {
