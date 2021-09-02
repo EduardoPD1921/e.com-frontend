@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { LikeContext } from '../../Context/LikeContext';
 
 import { HeartOutlined, HeartFilled, ShoppingCartOutlined } from '@ant-design/icons';
 
@@ -12,12 +13,14 @@ import {
 } from './styles';
 
 function ProductCard({ id, title, image, price, liked }) {
+  const { handleLike } = useContext(LikeContext);
+
   const renderLikedIcon = () => {
     if (liked) {
       return <HeartFilled style={{ fontSize: 15, color: '#e0245e' }} />
     };
 
-    return <HeartOutlined style={{ fontSize: 15, color: '#c8c8c8' }} />
+    return <HeartOutlined onClick={() => handleLike(id)} style={{ fontSize: 15, color: '#c8c8c8' }} />
   };
 
   return (

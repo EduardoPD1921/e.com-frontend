@@ -18,7 +18,7 @@ import Banner from '../../components/Banner';
 import ProductCard from '../../components/ProductCard';
 import Footer from '../../components/Footer';
 
-import itemImage from '../../static/images/itemImage.png';
+// import itemImage from '../../static/images/itemImage.png';
 
 function Home() {
   const [products, setProducts] = useState();
@@ -75,10 +75,17 @@ function Home() {
     });
   };
 
+  function teste() {
+    api.put('/user/likeProduct')
+      .then(resp => console.log(resp))
+      .catch(error => console.log(error.response));
+  };
+
   return (
     <HomeSection>
       <Navbar />
       <Banner />
+      <button onClick={teste}>teste</button>
       <CardSectionTitle>
         Produtos novos
       </CardSectionTitle>

@@ -1,14 +1,17 @@
 import Router from './router';
 import { SignUpProvider } from './Context/SignUpContext';
 import { AuthProvider } from './Context/AuthContext';
+import { LikeProvider } from './Context/LikeContext';
 
 function App() {
   return (
-    <AuthProvider>
-      <SignUpProvider>
-        <Router />
-      </SignUpProvider>
-    </AuthProvider>
+    <LikeProvider>
+      <AuthProvider>
+        <SignUpProvider>
+          <Router />
+        </SignUpProvider>
+      </AuthProvider>
+    </LikeProvider>
   );
 };
 
