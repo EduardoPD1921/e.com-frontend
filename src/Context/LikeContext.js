@@ -1,6 +1,8 @@
 import React, { createContext, useState, useEffect } from 'react';
 import api from '../api';
 
+import { message } from 'antd';
+
 const LikeContext = createContext();
 
 function LikeProvider({ children }) {
@@ -34,10 +36,10 @@ function LikeProvider({ children }) {
 
   function errorHandler(error) {
     if (error === 'access-denied') {
-      window.location.replace('/signIn');
+      return window.location.replace('/signIn');
     };
 
-    console.log(error);
+    message.error('Erro interno');
   };
 
   return (

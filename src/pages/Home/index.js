@@ -1,5 +1,6 @@
 import React, { useEffect, useContext, useState } from 'react';
 import { SignUpContext } from '../../Context/SignUpContext';
+import { CartContext } from '../../Context/CartContext';
 
 import api from '../../api';
 
@@ -25,6 +26,7 @@ function Home() {
   const [isLoading, setIsLoading] = useState(true);
 
   const { setIsSignUp, isSignUp } = useContext(SignUpContext);
+  const { addedProductsToCart } = useContext(CartContext);
 
   useEffect(() => {
     if (isSignUp) {
@@ -84,6 +86,7 @@ function Home() {
       <CardSectionTitle>
         Produtos novos
       </CardSectionTitle>
+      <button onClick={() => console.log(addedProductsToCart)}>test</button>
       <Carousel
         responsive={responsive}
         infinite={true}

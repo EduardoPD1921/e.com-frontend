@@ -2,7 +2,8 @@ import React, { useContext } from 'react';
 import { LikeContext } from '../../Context/LikeContext';
 import { CartContext } from '../../Context/CartContext';
 
-import { HeartOutlined, HeartFilled, ShoppingCartOutlined } from '@ant-design/icons';
+import { Button } from 'antd'; 
+import { HiShoppingCart, HiOutlineShoppingCart, HiOutlineHeart, HiHeart } from 'react-icons/hi';
 
 import {
   ProductCardSection,
@@ -15,21 +16,45 @@ import {
 
 function ProductCard({ id, title, image, price }) {
   const { handleLike, handleUnlike, likedProducts } = useContext(LikeContext);
-  const { addProductToCart } = useContext(CartContext);
+  const { addProductToCart, addedProductsToCart } = useContext(CartContext);
 
   function renderLikedIcon() {
     if (likedProducts.includes(id)) {
-      return <HeartFilled onClick={() => handleUnlike(id)} style={{ fontSize: 15, color: '#e0245e' }} />
+      return (
+        <Button type="link" onClick={() => handleUnlike(id)}>
+          <HiHeart style={{ fontSize: 20, color: '#e0245e' }} />
+        </Button>
+      );
     };
 
-    return <HeartOutlined onClick={() => handleLike(id)} style={{ fontSize: 15, color: '#c8c8c8' }} />
+    return (
+      <Button type="link" onClick={() => handleLike(id)}>
+        <HiOutlineHeart style={{ fontSize: 20, color: '#c8c8c8' }} />
+      </Button>
+    );
+  };
+
+  function renderCartButton() {
+    if (addedProductsToCart.includes(id)) {
+      return (
+        <Button type="link">
+          <HiShoppingCart style={{ fontSize: 20, color: '#393939' }} />
+        </Button>
+      );
+    };
+
+    return (
+      <Button type="link" onClick={() => addProductToCart({ id, title, image, price })}>
+        <HiOutlineShoppingCart style={{ fontSize: 20, color: '#c8c8c8' }} />
+      </Button>
+    );
   };
 
   return (
     <ProductCardSection>
       <CardActions>
         {renderLikedIcon()}
-        <ShoppingCartOutlined onClick={() => addProductToCart({ id, title, image, price })} style={{ fontSize: 20, color: '#c8c8c8' }} />
+        {renderCartButton()}
       </CardActions>
       <CardInfo>
         <img src={image} width={150} alt="Product" />

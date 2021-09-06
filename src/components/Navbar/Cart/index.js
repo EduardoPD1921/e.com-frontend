@@ -1,10 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
+import { CartContext } from '../../../Context/CartContext';
 
-import { Drawer, Badge } from 'antd';
-import { ShoppingCartOutlined } from '@ant-design/icons';
+import { Drawer, Badge, Button } from 'antd';
+import { HiOutlineShoppingCart } from 'react-icons/hi';
 
 function Cart() {
   const [isDrawerVisible, setIsDrawerVisible] = useState(false);
+  const [cartSize, setCartSize] = useState(0);
+
+  const { addedProductsToCart } = useContext(CartContext);
+
+  useEffect(() => {
+    setCartSize(addedProductsToCart.lenght);
+  }, [addedProductsToCart]);
 
   function showDrawer() {
     setIsDrawerVisible(true);
@@ -16,8 +24,10 @@ function Cart() {
 
   return (
     <>
-      <Badge size="small">
-        <ShoppingCartOutlined onClick={showDrawer} style={{ fontSize: 20, color: '#efefef' }} />
+      <Badge size="small" count={cartSize}>
+        <Button type="link" onClick={showDrawer}>
+          <HiOutlineShoppingCart style={{ fontSize: 25, color: '#efefef' }} />
+        </Button>
       </Badge>
       <Drawer
         placement="right"
