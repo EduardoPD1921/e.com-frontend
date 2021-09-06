@@ -35,7 +35,8 @@ function ProductCard({ id, title, image, price }) {
   };
 
   function renderCartButton() {
-    if (addedProductsToCart.includes(id)) {
+    // const addedProduct = addedProductsToCart.find(e => e._id === id);
+    if (addedProductsToCart.find(e => e._id === id)) {
       return (
         <Button type="link">
           <HiShoppingCart style={{ fontSize: 20, color: '#393939' }} />
@@ -44,7 +45,7 @@ function ProductCard({ id, title, image, price }) {
     };
 
     return (
-      <Button type="link" onClick={() => addProductToCart({ id, title, image, price })}>
+      <Button type="link" onClick={() => addProductToCart({ _id: id, title, image, price })}>
         <HiOutlineShoppingCart style={{ fontSize: 20, color: '#c8c8c8' }} />
       </Button>
     );

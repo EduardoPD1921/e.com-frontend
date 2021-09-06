@@ -9,13 +9,18 @@ const CartContext = createContext();
 
 function CartProvider({ children }) {
   const [addedProductsToCart, setAddedProductsToCart] = useState([]);
+  const [cartSize, setCartSize] = useState(0);
 
   useEffect(() => {
     const userToken = localStorage.getItem('token');
 
     if (userToken) {
       api.get('/user/getProductCart')
-        .then(resp => setAddedProductsToCart(resp.data.cart))
+        .then(resp => {
+          console.log(resp.data);
+          setAddedProductsToCart(resp.data.cart);
+          setCartSize(resp.data.cart.length);
+        })
         .catch(error => console.log(error.response));
     };
   }, []);
@@ -23,7 +28,8 @@ function CartProvider({ children }) {
   function addProductToCart(productData) {
     api.put('/user/addProductToCart', productData)
       .then(resp => {
-        setAddedProductsToCart(prevState => [...prevState, productData.id]);
+        setAddedProductsToCart(prevState => [...prevState, productData]);
+        setCartSize(prevState => prevState + 1);
         notification.open({
           message: 'Produto adicionado ao carrinho',
           icon: <HiShoppingCart />,
@@ -42,7 +48,7 @@ function CartProvider({ children }) {
   };
 
   return (
-    <CartContext.Provider value={{ addProductToCart, addedProductsToCart }}>
+    <CartContext.Provider value={{ addProductToCart, addedProductsToCart, cartSize }}>
       {children}
     </CartContext.Provider>
   );
