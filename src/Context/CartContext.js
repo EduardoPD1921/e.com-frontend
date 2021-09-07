@@ -17,7 +17,6 @@ function CartProvider({ children }) {
     if (userToken) {
       api.get('/user/getProductCart')
         .then(resp => {
-          console.log(resp.data);
           setAddedProductsToCart(resp.data.cart);
           setCartSize(resp.data.cart.length);
         })
@@ -39,6 +38,15 @@ function CartProvider({ children }) {
       .catch(error => errorHandler(error.response.data));
   };
 
+  function removeProductFromCart(_id) {
+    api.put('/user/removeProductFromCart', { _id })
+      .then(resp => {
+        setAddedProductsToCart(prevState => prevState.filter(e => e._id !== _id));
+        setCartSize(prevState => prevState - 1);
+      })
+      .catch(error => errorHandler(error.response.data));
+  };
+
   function errorHandler(error) {
     if (error === 'access-denied') {
       return window.location.replace('/signIn');
@@ -48,7 +56,7 @@ function CartProvider({ children }) {
   };
 
   return (
-    <CartContext.Provider value={{ addProductToCart, addedProductsToCart, cartSize }}>
+    <CartContext.Provider value={{ addProductToCart, removeProductFromCart, addedProductsToCart, cartSize }}>
       {children}
     </CartContext.Provider>
   );

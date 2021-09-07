@@ -16,7 +16,7 @@ import {
 
 function ProductCard({ id, title, image, price }) {
   const { handleLike, handleUnlike, likedProducts } = useContext(LikeContext);
-  const { addProductToCart, addedProductsToCart } = useContext(CartContext);
+  const { addProductToCart, removeProductFromCart, addedProductsToCart } = useContext(CartContext);
 
   function renderLikedIcon() {
     if (likedProducts.includes(id)) {
@@ -35,10 +35,9 @@ function ProductCard({ id, title, image, price }) {
   };
 
   function renderCartButton() {
-    // const addedProduct = addedProductsToCart.find(e => e._id === id);
     if (addedProductsToCart.find(e => e._id === id)) {
       return (
-        <Button type="link">
+        <Button type="link" onClick={() => removeProductFromCart(id)}>
           <HiShoppingCart style={{ fontSize: 20, color: '#393939' }} />
         </Button>
       );

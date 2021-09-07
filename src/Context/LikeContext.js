@@ -27,9 +27,7 @@ function LikeProvider({ children }) {
   };
 
   function handleUnlike(productId) {
-    const data = { productId };
-
-    api.put('/user/unlikeProduct', data)
+    api.put('/user/unlikeProduct', { productId })
       .then(resp => setLikedProducts(prevState => prevState.filter(e => e !== productId)))
       .catch(error => errorHandler(error.response.data));
   }
