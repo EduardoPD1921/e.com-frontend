@@ -1,16 +1,22 @@
 import React, { useState, useContext } from 'react';
 import { CartContext } from '../../../Context/CartContext';
+import { AuthContext } from '../../../Context/AuthContext';
 
 import { Drawer, Badge, Button } from 'antd';
 import { HiOutlineShoppingCart } from 'react-icons/hi';
 
 function Cart() {
   const [isDrawerVisible, setIsDrawerVisible] = useState(false);
-  
-   const { cartSize } = useContext(CartContext);
+
+  const { authenticated } = useContext(AuthContext);
+  const { cartSize } = useContext(CartContext);
 
   function showDrawer() {
-    setIsDrawerVisible(true);
+    if (authenticated) {
+      return setIsDrawerVisible(true);
+    };
+
+    window.location.replace('/signIn');
   };
 
   function onClose() {
