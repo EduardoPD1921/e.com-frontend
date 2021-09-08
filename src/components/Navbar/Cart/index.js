@@ -2,8 +2,19 @@ import React, { useState, useContext } from 'react';
 import { CartContext } from '../../../Context/CartContext';
 import { AuthContext } from '../../../Context/AuthContext';
 
-import { Drawer, Badge, Button } from 'antd';
+import { Drawer, Badge, Button, Divider, InputNumber } from 'antd';
 import { HiOutlineShoppingCart } from 'react-icons/hi';
+
+import itemImage from '../../../static/images/itemImage.png';
+
+import {
+  CartTile,
+  CartProductCard,
+  CardInfo,
+  CardTitle,
+  CardTags,
+  CardPrice
+} from './styles';
 
 function Cart() {
   const [isDrawerVisible, setIsDrawerVisible] = useState(false);
@@ -31,12 +42,29 @@ function Cart() {
         </Badge>
       </Button>
       <Drawer
+        width={380}
         placement="right"
         closable={true}
         visible={isDrawerVisible}
         onClose={onClose}
       >
-        test
+        <CartTile>Seu carrinho</CartTile>
+
+        <Divider />
+        <CartProductCard>
+          <img src={itemImage} width={100} alt="Product" />
+          <CardInfo>
+            <CardTitle>Relógio rolex</CardTitle>
+            <CardTags>Relógio acessório vestuário</CardTags>
+            <InputNumber
+              defaultValue={1}
+              style={{ width: 70, marginTop: 15 }}
+            />
+          </CardInfo>
+          <CardPrice>
+            R$45,00
+          </CardPrice>
+        </CartProductCard>
       </Drawer>
     </>
   );
