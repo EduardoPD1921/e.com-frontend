@@ -10,7 +10,7 @@ import {
   CardPrice
 } from './styles';
 
-function CardProductCart({ image, title, tags, price }) {
+function CartProductCard({ image, title, tags, price }) {
   return (
     <>
       <Divider />
@@ -18,7 +18,9 @@ function CardProductCart({ image, title, tags, price }) {
         <img src={image} width={100} alt="Product" />
         <CardInfo>
           <CardTitle>{title}</CardTitle>
-          <CardTags>{/* Tags */}</CardTags>
+          <CardTags>
+            {tags.map(tag => tag + ' ')}
+          </CardTags>
           <InputNumber
             defaultValue={1}
             style={{ width: 70, marginTop: 15 }} 
@@ -30,4 +32,4 @@ function CardProductCart({ image, title, tags, price }) {
   );
 };
 
-export default CardProductCart;
+export default CartProductCard;

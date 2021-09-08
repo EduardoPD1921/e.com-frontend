@@ -44,15 +44,16 @@ function CartProvider({ children }) {
         setAddedProductsToCart(prevState => prevState.filter(e => e._id !== _id));
         setCartSize(prevState => prevState - 1);
       })
-      .catch(error => errorHandler(error.response.data));
+      .catch(error => errorHandler(error.response));
   };
 
   function errorHandler(error) {
-    if (error === 'access-denied') {
+    if (error.data === 'access-denied') {
       return window.location.replace('/signIn');
     };
 
     message.error('Erro interno');
+    console.log(error);
   };
 
   return (

@@ -14,7 +14,7 @@ import {
   CardShow
 } from './styles';
 
-function ProductCard({ id, title, image, price }) {
+function ProductCard({ id, title, image, price, tags }) {
   const { handleLike, handleUnlike, likedProducts } = useContext(LikeContext);
   const { addProductToCart, removeProductFromCart, addedProductsToCart } = useContext(CartContext);
 
@@ -44,7 +44,7 @@ function ProductCard({ id, title, image, price }) {
     };
 
     return (
-      <Button type="link" onClick={() => addProductToCart({ _id: id, title, image, price })}>
+      <Button type="link" onClick={() => addProductToCart({ _id: id, title, image, price, tags })}>
         <HiOutlineShoppingCart style={{ fontSize: 20, color: '#c8c8c8' }} />
       </Button>
     );
@@ -65,7 +65,7 @@ function ProductCard({ id, title, image, price }) {
           {price}
         </CardPrice>
       </CardInfo>
-      <CardShow>
+      <CardShow onClick={() => console.log(tags)}>
         Ver mais
       </CardShow>
     </ProductCardSection>

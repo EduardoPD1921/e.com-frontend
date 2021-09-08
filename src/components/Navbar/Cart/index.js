@@ -2,25 +2,20 @@ import React, { useState, useContext } from 'react';
 import { CartContext } from '../../../Context/CartContext';
 import { AuthContext } from '../../../Context/AuthContext';
 
-import { Drawer, Badge, Button, Divider, InputNumber } from 'antd';
+import CartProductCard from '../../CartProductCard';
+
+import { Drawer, Badge, Button } from 'antd';
 import { HiOutlineShoppingCart } from 'react-icons/hi';
 
-import itemImage from '../../../static/images/itemImage.png';
+// import itemImage from '../../../static/images/itemImage.png';
 
-import {
-  CartTile,
-  CartProductCard,
-  CardInfo,
-  CardTitle,
-  CardTags,
-  CardPrice
-} from './styles';
+import { CartTile } from './styles';
 
 function Cart() {
   const [isDrawerVisible, setIsDrawerVisible] = useState(false);
 
   const { authenticated } = useContext(AuthContext);
-  const { cartSize } = useContext(CartContext);
+  const { addedProductsToCart, cartSize } = useContext(CartContext);
 
   function showDrawer() {
     if (authenticated) {
@@ -32,6 +27,19 @@ function Cart() {
 
   function onClose() {
     setIsDrawerVisible(false);
+  };
+
+  function renderCartProducts() {
+    return addedProductsToCart.map(product => {
+      return (
+        <CartProductCard
+          image={product.image}
+          title={product.title}
+          tags={product.tags}
+          price={product.price}
+        />
+      );
+    });
   };
 
   return (
@@ -49,8 +57,8 @@ function Cart() {
         onClose={onClose}
       >
         <CartTile>Seu carrinho</CartTile>
-
-        <Divider />
+        {renderCartProducts()}
+        {/* <Divider />
         <CartProductCard>
           <img src={itemImage} width={100} alt="Product" />
           <CardInfo>
@@ -64,7 +72,7 @@ function Cart() {
           <CardPrice>
             R$45,00
           </CardPrice>
-        </CartProductCard>
+        </CartProductCard> */}
       </Drawer>
     </>
   );

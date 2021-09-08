@@ -71,7 +71,8 @@ function Home() {
           id={product._id}
           title={product.title}
           image={product.image}
-          price={product.price} 
+          price={product.price}
+          tags={product.tags} 
         />
       );
     });
