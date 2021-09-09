@@ -26,7 +26,7 @@ function CartProductCard({ image, title, tags, price }) {
             style={{ width: 70, marginTop: 15 }} 
           />
         </CardInfo>
-        <CardPrice>{price}</CardPrice>
+        <CardPrice>R${price.toFixed(2).replace('.', ',')}</CardPrice>
       </CartProductCardContainer>
     </>
   );

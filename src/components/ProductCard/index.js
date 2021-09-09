@@ -62,7 +62,7 @@ function ProductCard({ id, title, image, price, tags }) {
           {title}
         </CardTitle>
         <CardPrice>
-          {price}
+          R${price.toFixed(2).replace('.', ',')}
         </CardPrice>
       </CardInfo>
       <CardShow onClick={() => console.log(tags)}>

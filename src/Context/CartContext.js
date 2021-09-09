@@ -35,7 +35,7 @@ function CartProvider({ children }) {
           placement: 'bottomLeft'
         });
       })
-      .catch(error => errorHandler(error.response.data));
+      .catch(error => errorHandler(error.response));
   };
 
   function removeProductFromCart(_id) {

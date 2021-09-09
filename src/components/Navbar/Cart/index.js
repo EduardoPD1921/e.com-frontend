@@ -58,21 +58,6 @@ function Cart() {
       >
         <CartTile>Seu carrinho</CartTile>
         {renderCartProducts()}
-        {/* <Divider />
-        <CartProductCard>
-          <img src={itemImage} width={100} alt="Product" />
-          <CardInfo>
-            <CardTitle>Relógio rolex</CardTitle>
-            <CardTags>Relógio acessório vestuário</CardTags>
-            <InputNumber
-              defaultValue={1}
-              style={{ width: 70, marginTop: 15 }}
-            />
-          </CardInfo>
-          <CardPrice>
-            R$45,00
-          </CardPrice>
-        </CartProductCard> */}
       </Drawer>
     </>
   );
