@@ -40,5 +40,15 @@ export const CheckoutButton = styled(Button)`
     font-family: robotoMedium;
     font-size: 16px;
     color: #525252;
+
+    :hover {
+      border-color: #ff8b15;
+      color: #ff8b15;
+    }
+
+    :focus {
+      border-color: #ff8b15;
+      color: #ff8b15;
+    }
   }
 `;

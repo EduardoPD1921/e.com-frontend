@@ -17,7 +17,7 @@
 - [x] Responsividade do footer
 - [x] Resolver bug de loop de requisição para a rota show
 - [x] Tratar exceções
-- [ ] Finalizar o drawer do carrinho
+- [x] Finalizar o drawer do carrinho
 - [ ] Limitar quantidade de tags por produto
 - [ ] Responsividade dos cards de produtos
 - [x] Responsividade dos formulários
@@ -25,7 +25,7 @@
 - [x] Sistema de cadastro de usuários
 - [x] Tratar os erros de login
 - [ ] Renderizar produtos cadastrados mais recentemente
-- [ ] Sistema de carrinho de compras funcional
+- [x] Sistema de carrinho de compras funcional
 - [x] Sistema de like em produtos
 - [ ] Página do produto
 
