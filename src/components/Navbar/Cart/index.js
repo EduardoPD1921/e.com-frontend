@@ -7,7 +7,14 @@ import CartProductCard from '../../CartProductCard';
 import { Drawer, Badge, Button, Divider } from 'antd';
 import { HiOutlineShoppingCart } from 'react-icons/hi';
 
-import { CartTitle, ProductsContainer, CheckoutContainer, SubtotalContainer, CheckoutInfo } from './styles';
+import { 
+  CartTitle,
+  ProductsContainer,
+  CheckoutContainer,
+  SubtotalContainer,
+  CheckoutInfo,
+  CheckoutButton
+} from './styles';
 
 function Cart() {
   const [isDrawerVisible, setIsDrawerVisible] = useState(false);
@@ -45,11 +52,15 @@ function Cart() {
       return product.price;
     });
 
-    const subtotal = arrPrices.reduce(function(previousPrice, currentPrice) {
-      return previousPrice + currentPrice;
-    });
+    if (arrPrices.length > 0) {
+      const subtotal = arrPrices.reduce(function(previousPrice, currentPrice) {
+        return previousPrice + currentPrice;
+      });
 
-    return subtotal.toFixed(2).replace('.', ',');
+      return subtotal.toFixed(2).replace('.', ',');
+    };
+
+    return 0;
   };
 
   return (
@@ -60,7 +71,7 @@ function Cart() {
         </Badge>
       </Button>
       <Drawer
-        width={380}
+        width={400}
         placement="right"
         closable={true}
         visible={isDrawerVisible}
@@ -76,6 +87,9 @@ function Cart() {
             <CheckoutInfo>Subtotal</CheckoutInfo>
             <CheckoutInfo style={{ marginLeft: 'auto' }}>R${renderSubtotal()}</CheckoutInfo>
           </SubtotalContainer>
+          <CheckoutButton>
+            Finalizar compra
+          </CheckoutButton>
         </CheckoutContainer>
       </Drawer>
     </>

@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components';
+import { Button } from 'antd';
 
 const titleStyle = css`
   font-family: robotoBold;
@@ -29,4 +30,15 @@ export const CheckoutContainer = styled.div`
 export const SubtotalContainer = styled.div`
   display: flex;
   flex-direction: row;
+`;
+
+export const CheckoutButton = styled(Button)`
+  && {
+    margin-top: 50px;
+    height: 60px;
+
+    font-family: robotoMedium;
+    font-size: 16px;
+    color: #525252;
+  }
 `;
