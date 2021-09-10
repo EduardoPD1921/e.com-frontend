@@ -17,6 +17,7 @@
 - [x] Responsividade do footer
 - [x] Resolver bug de loop de requisição para a rota show
 - [x] Tratar exceções
+- [ ] Finalizar o drawer do carrinho
 - [ ] Limitar quantidade de tags por produto
 - [ ] Responsividade dos cards de produtos
 - [x] Responsividade dos formulários

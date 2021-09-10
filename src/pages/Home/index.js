@@ -90,11 +90,6 @@ function Home() {
         infinite={true}
       >
         {renderProducts()}
-        {/* <ProductCard
-          image={itemImage}
-          title="Relógio Rolex"
-          price="R$1450,00" 
-        /> */}
       </Carousel>
 
       <Footer />
