@@ -2,7 +2,8 @@ import styled from 'styled-components';
 import { Button } from 'antd';
 
 export const CardShow = styled(Button)`
-  visibility: hidden;
+  // Temporarily comented just for tests on mobile screen
+  /* visibility: hidden; */
 
   display: flex;
   justify-content: center;
@@ -36,7 +37,8 @@ export const CardShow = styled(Button)`
 `;
 
 export const ProductCardSection = styled.div`
-  width: 15vw;
+  /* width: 15vw; */
+  width: 280px;
   height: 400px;
   margin: 40px;
 

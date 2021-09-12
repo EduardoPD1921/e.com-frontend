@@ -44,18 +44,28 @@ function Home() {
   }, []);
   
   const responsive = {
-    desktop: {
-      breakpoint: { max: 3000, min: 1024 },
+    screen1: {
+      breakpoint: { max: 3000, min: 1550 },
       items: 5,
       slidesToSlide: 3
     },
-    tablet: {
-      breakpoint: { max: 1024, min: 464 },
+    screen2: {
+      breakpoint: { max: 1550, min: 1300 },
+      items: 4,
+      slidesToSlide: 2
+    },
+    screen3: {
+      breakpoint: { max: 1300, min: 920 },
+      items: 3,
+      slidesToSlide: 2
+    },
+    screen4: {
+      breakpoint: { max: 920, min: 620},
       items: 2,
       slidesToSlide: 2
     },
-    mobile: {
-      breakpoint: { max: 464, min: 0 },
+    screen5: {
+      breakpoint: { max: 620, min: 0 },
       items: 1,
       slidesToSlide: 1
     }
