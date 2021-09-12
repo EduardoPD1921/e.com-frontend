@@ -10,24 +10,10 @@
 
 ### Ajustes e melhorias
 
-- [x] Header
-- [x] Banner
-- [x] Slider de produtos na home
-- [x] Footer
-- [x] Responsividade do footer
-- [x] Resolver bug de loop de requisição para a rota show
-- [x] Tratar exceções
-- [x] Finalizar o drawer do carrinho
 - [ ] Limitar quantidade de tags por produto
 - [ ] Responsividade dos cards de produtos
-- [x] Responsividade dos formulários
-- [x] Sistema de login
-- [x] Sistema de cadastro de usuários
-- [x] Tratar os erros de login
-- [x] Renderizar produtos cadastrados mais recentemente
-- [x] Sistema de carrinho de compras funcional
-- [x] Sistema de like em produtos
 - [ ] Página do produto
+- [ ] Página para finalizar a compra
 
 ## :large_orange_diamond: Identidade visual
 <img src="./.github/assets/images/preview.png">
