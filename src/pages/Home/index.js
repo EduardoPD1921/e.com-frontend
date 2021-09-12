@@ -18,8 +18,6 @@ import Banner from '../../components/Banner';
 import ProductCard from '../../components/ProductCard';
 import Footer from '../../components/Footer';
 
-// import itemImage from '../../static/images/itemImage.png';
-
 function Home() {
   const [products, setProducts] = useState();
   const [isLoading, setIsLoading] = useState(true);
@@ -34,12 +32,15 @@ function Home() {
   });
 
   useEffect(() => {
-    api.get('/product/show')
+    api.get('/product/getLastAdded')
       .then(resp => {
         setProducts(resp.data);
         setIsLoading(false);
       })
-      .catch(error => console.log(error.response));
+      .catch(error => {
+        message.error('Erro interno');
+        console.log(error.response);
+      });
   }, []);
   
   const responsive = {

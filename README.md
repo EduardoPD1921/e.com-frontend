@@ -24,7 +24,7 @@
 - [x] Sistema de login
 - [x] Sistema de cadastro de usuários
 - [x] Tratar os erros de login
-- [ ] Renderizar produtos cadastrados mais recentemente
+- [x] Renderizar produtos cadastrados mais recentemente
 - [x] Sistema de carrinho de compras funcional
 - [x] Sistema de like em produtos
 - [ ] Página do produto
