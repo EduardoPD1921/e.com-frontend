@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-d
 import Home from '../pages/Home';
 import SignIn from '../pages/SignIn';
 import SignUp from '../pages/SignUp';
+import Product from '../pages/Product';
 
 function Routes() {
   const { authenticated } = useContext(AuthContext);
@@ -16,15 +17,18 @@ function Routes() {
         <Route path="/" exact>
           <Redirect to="/home" />
         </Route>
-        <Route path="/home" exact component={Home} />
+        <Route path="/home" exact>
+          <Home />
+        </Route>
         <Route path="/signIn" exact>
           {authenticated ? <Redirect to="/home" /> : <SignIn />}
         </Route>
         <Route path="/signUp" exact>
           {authenticated ? <Redirect to="/home" /> : <SignUp />}
         </Route>
-        {/* <Route path="/signIn" exact component={SignIn} />
-        <Route path="/signUp" exact component={SignUp} /> */}
+        <Route path="/product/:id" exact> 
+          <Product />
+        </Route>
       </Switch>
     </Router>
   );

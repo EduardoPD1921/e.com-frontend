@@ -10,11 +10,13 @@
 
 ### Ajustes e melhorias
 
-- [ ] Limitar quantidade de tags por produto
+- [x] Limitar quantidade de tags por produto
 - [x] Responsividade dos cards de produtos
 - [ ] Página do produto
+- [ ] Sistema de comentário e avaliação do produto
 - [ ] Página para finalizar a compra
 - [ ] Botão para remover produto direto do carrinho
+- [ ] Adicionar dinâmica nos cards de produto
 
 ## :large_orange_diamond: Identidade visual
 <img src="./.github/assets/images/preview.png">
