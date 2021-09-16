@@ -65,7 +65,7 @@ function ProductCard({ id, title, image, price, tags }) {
           R${price.toFixed(2).replace('.', ',')}
         </CardPrice>
       </CardInfo>
-      <CardShow onClick={() => console.log(tags)}>
+      <CardShow href={`/product/${id}`}>
         Ver mais
       </CardShow>
     </ProductCardSection>
