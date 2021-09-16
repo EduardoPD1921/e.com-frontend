@@ -1,8 +1,8 @@
 import React from 'react';
 
-import Navbar from '../../components/Navbar';
-import Footer from '../../components/Footer';
-import SignUpForm from '../../components/SignUpForm';
+import Navbar from '../../components/layout/Navbar';
+import Footer from '../../components/layout/Footer';
+import SignUpForm from '../../components/auth/SignUpForm';
 
 import { SignUpSection } from './styles';
 

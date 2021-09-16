@@ -1,13 +1,13 @@
 import React, { useContext, useState } from 'react';
-import { AuthContext } from '../../Context/AuthContext';
+import { AuthContext } from '../../../Context/AuthContext';
 
 import { Redirect } from 'react-router-dom';
 
-import api from '../../api';
+import api from '../../../api';
 
 import { Form, Checkbox, Divider, message } from 'antd';
 
-import formIllustration from '../../static/images/formIllustration.svg';
+import formIllustration from '../../../static/images/formIllustration.svg';
 
 import {
   SignInFormSection,

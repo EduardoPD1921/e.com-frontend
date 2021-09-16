@@ -1,8 +1,8 @@
 import React, { useState, useContext } from 'react';
-import { SignUpContext } from '../../Context/SignUpContext';
+import { SignUpContext } from '../../../Context/SignUpContext';
 import { Redirect } from 'react-router-dom';
 
-import api from '../../api';
+import api from '../../../api';
 
 import InfoCard from './InfoCard';
 

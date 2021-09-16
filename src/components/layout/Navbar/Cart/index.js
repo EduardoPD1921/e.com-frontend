@@ -1,8 +1,8 @@
 import React, { useState, useContext } from 'react';
-import { CartContext } from '../../../Context/CartContext';
-import { AuthContext } from '../../../Context/AuthContext';
+import { CartContext } from '../../../../Context/CartContext';
+import { AuthContext } from '../../../../Context/AuthContext';
 
-import CartProductCard from '../../CartProductCard';
+import CartProductCard from '../../../CartProductCard';
 
 import { Drawer, Badge, Button, Divider } from 'antd';
 import { HiOutlineShoppingCart } from 'react-icons/hi';

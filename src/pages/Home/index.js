@@ -13,10 +13,10 @@ import {
   CardSectionTitle
 } from './styles';
 
-import Navbar from '../../components/Navbar';
-import Banner from '../../components/Banner';
+import Navbar from '../../components/layout/Navbar';
+import Banner from '../../components/layout/Banner';
 import ProductCard from '../../components/ProductCard';
-import Footer from '../../components/Footer';
+import Footer from '../../components/layout/Footer';
 
 function Home() {
   const [products, setProducts] = useState();

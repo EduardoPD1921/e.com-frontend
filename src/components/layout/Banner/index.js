@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { AuthContext } from '../../Context/AuthContext';
+import { AuthContext } from '../../../Context/AuthContext';
 
 import {
   BannerSection,
@@ -12,7 +12,7 @@ import {
   BannerImage
 } from './styles';
 
-import tvImage from '../../static/images/tvImage.png';
+import tvImage from '../../../static/images/tvImage.png';
 
 function Banner() {
   const { authenticated, handleLogout } = useContext(AuthContext);

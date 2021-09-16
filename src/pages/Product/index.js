@@ -8,8 +8,8 @@ import api from '../../api';
 import { Tag } from 'antd';
 import { HiHeart, HiOutlineHeart } from 'react-icons/hi';
 
-import Navbar from '../../components/Navbar';
-import Footer from '../../components/Footer';
+import Navbar from '../../components/layout/Navbar';
+import Footer from '../../components/layout/Footer';
 
 import {
   Test,
