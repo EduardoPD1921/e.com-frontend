@@ -19,6 +19,7 @@
 - [ ] Adicionar dinâmica nos cards de produto
 - [ ] Corrigir bug de remoção e armazenamento do estado do carrinho
 - [ ] Limitar tamanho das imagens dos produtos
+- [ ] Sistema de estoque de produtos
 
 ## :large_orange_diamond: Identidade visual
 <img src="./.github/assets/images/preview.png">

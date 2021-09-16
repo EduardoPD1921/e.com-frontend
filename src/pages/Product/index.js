@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { LikeContext } from '../../Context/LikeContext';
+import { CartContext } from '../../Context/CartContext';
 import { useParams } from 'react-router-dom';
 
 import api from '../../api';
@@ -8,7 +9,7 @@ import { Tag } from 'antd';
 import { HiHeart, HiOutlineHeart } from 'react-icons/hi';
 
 import Navbar from '../../components/Navbar';
-// import Footer from '../../components/Footer';
+import Footer from '../../components/Footer';
 
 import {
   Test,
@@ -33,7 +34,8 @@ function Product() {
 
   const { id } = useParams();
 
-  const { likedProducts } = useContext(LikeContext);
+  const { likedProducts, handleLike, handleUnlike } = useContext(LikeContext);
+  const { addProductToCart } = useContext(CartContext);
 
   useEffect(() => {
     api.get(`/product/getById/${id}`)
@@ -44,17 +46,25 @@ function Product() {
   function renderLikedButton() {
     if (likedProducts.includes(id)) {
       return (
-        <BookmarkProductAction>
+        <BookmarkProductAction onClick={() => handleUnlike(id)}>
           <HiHeart style={{ fontSize: 20, color: '#e0245e' }} />
         </BookmarkProductAction>
       );
     };
 
     return (
-      <BookmarkProductAction>
+      <BookmarkProductAction onClick={() => handleLike(id)}>
         <HiOutlineHeart style={{ fontSize: 20, color: '#c8c8c8' }} />
       </BookmarkProductAction>
     );
+  };
+
+  function renderTags() {
+    if (productInfo) {
+      return productInfo.tags.map(tag => {
+        return <Tag>{tag}</Tag>
+      });
+    };
   };
 
   function renderProductInfo() {
@@ -70,19 +80,18 @@ function Product() {
                 {productInfo.title}
               </ProductTitle>
               <ProductPrice>
-                {productInfo.price}
+                R${productInfo.price.toFixed(2).replace('.', ',')}
               </ProductPrice>
             </MainInfo>
             <StockText>
               Em estoque
             </StockText>
             <TagContainer>
-              <Tag>Acessório</Tag>
-              <Tag>Relógio</Tag>
+              {renderTags()}
             </TagContainer>
             <ActionButtonsContainer>
               <BuyAction onClick={() => console.log('test')}>Comprar</BuyAction>
-              <AddToCartAction>Adicionar ao carrinho</AddToCartAction>
+              <AddToCartAction onClick={() => addProductToCart({ _id: productInfo._id, title: productInfo.title, image: productInfo.image, price: productInfo.price, tags: productInfo.tags })}>Adicionar ao carrinho</AddToCartAction>
               {renderLikedButton()}
             </ActionButtonsContainer>
           </InfoContainer>
@@ -98,6 +107,8 @@ function Product() {
       <Test>
         {renderProductInfo()}
       </Test>
+
+      <Footer />
     </>
   );
 };
