@@ -1,21 +1,20 @@
-import React, { useState, useEffect, useContext } from 'react';
-import { AuthContext } from '../../Context/AuthContext';
-import { useParams } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router';
 
 import api from '../../api';
 
 import Navbar from '../../components/layout/Navbar';
 import Footer from '../../components/layout/Footer';
 import ProductInfo from '../../components/ProductInfo';
+import CommentForm from '../../components/CommentForm';
 
-import { Divider, Input, Rate, Form, Avatar } from 'antd';
+import { Divider, Rate, Avatar } from 'antd';
 import { LoadingOutlined, UserOutlined } from '@ant-design/icons';
 
 import {
   ProductInfoSection,
   CommentsSection,
   UserComment,
-  SendCommentButton,
   CommentCard,
   CommentAuthor,
   CommentDate,
@@ -25,11 +24,7 @@ import {
 function Product() {
   const [product, setProduct] = useState();
 
-  const { authenticated } = useContext(AuthContext);
-
   const { id } = useParams();
-
-  const { TextArea } = Input;
 
   useEffect(() => {
     api.get(`/product/getById/${id}`)
@@ -54,16 +49,6 @@ function Product() {
     };
 
     return <LoadingOutlined style={{ color: '#ff8b15' }} />
-  };
-
-  function submitComment({ stars, comment }) {
-    if (authenticated === false) {
-      return window.location.replace('/signIn');
-    };
-
-    api.put('/product/addComment', { stars, comment, productId: id })
-      .then(resp => console.log(resp))
-      .catch(error => console.log(error.response));
   };
 
   function renderComments() {
@@ -105,29 +90,7 @@ function Product() {
         <Divider>Comentários</Divider>
 
         <UserComment>
-          <Form
-            style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column' }}
-            requiredMark={false}
-            name="commentForm"
-            layout="veritcal"
-            onFinish={submitComment}
-          >
-            <Form.Item
-              style={{ margin: 10 }}
-              name="stars"
-            >
-              <Rate allowHalf />
-            </Form.Item>
-            <Form.Item
-              style={{ margin: 5 }}
-              name="comment"
-            >
-              <TextArea maxLength={200} style={{ width: 400 }} placeholder="Deixe sua avaliação" />
-            </Form.Item>
-            <Form.Item style={{ alignSelf: 'flex-end', margin: 5 }}>
-              <SendCommentButton type="primary" htmlType="submit">Enviar</SendCommentButton>
-            </Form.Item>
-          </Form>
+          <CommentForm productId={id} />
         </UserComment>
         {renderComments()}
       </CommentsSection>
