@@ -8,14 +8,18 @@ import Navbar from '../../components/layout/Navbar';
 import Footer from '../../components/layout/Footer';
 import ProductInfo from '../../components/ProductInfo';
 
-import { Divider, Input, Rate, Form } from 'antd';
-import { LoadingOutlined } from '@ant-design/icons';
+import { Divider, Input, Rate, Form, Avatar } from 'antd';
+import { LoadingOutlined, UserOutlined } from '@ant-design/icons';
 
 import {
   ProductInfoSection,
   CommentsSection,
   UserComment,
-  SendCommentButton
+  SendCommentButton,
+  CommentCard,
+  CommentAuthor,
+  CommentDate,
+  Comment
 } from './styles';
 
 function Product() {
@@ -29,9 +33,12 @@ function Product() {
 
   useEffect(() => {
     api.get(`/product/getById/${id}`)
-      .then(resp => setProduct(resp.data))
+      .then(resp => {
+        setProduct(resp.data);
+        console.log(resp);
+      })
       .catch(error => console.log(error.response));
-  });
+  }, [id]);
 
   function renderProductInfo() {
     if (product) {
@@ -50,11 +57,40 @@ function Product() {
   };
 
   function submitComment({ stars, comment }) {
-    // if (authenticated) {
-    //   api.put('/product/addComment', { stars, comment })
-    //     .then(resp => console.log(resp))
-    //     .catch(error => console.log(error.response));
-    // };
+    if (authenticated === false) {
+      return window.location.replace('/signIn');
+    };
+
+    api.put('/product/addComment', { stars, comment, productId: id })
+      .then(resp => console.log(resp))
+      .catch(error => console.log(error.response));
+  };
+
+  function renderComments() {
+    if (product) {
+      return product.comments.map(comment => {
+        return (
+          <CommentCard>
+            <CommentAuthor><Avatar style={{ marginRight: 10 }} icon={<UserOutlined />} />{comment.authorName}</CommentAuthor>
+            <CommentDate>{getDateString(comment.postDate)}</CommentDate>
+            <Rate allowHalf disabled defaultValue={comment.stars} />
+            <Comment>
+              {comment.comment}
+            </Comment>
+          </CommentCard>
+        );
+      });
+    };
+  };
+
+  function getDateString(fullDate) {
+    const date = new Date(fullDate);
+
+    const day = date.getDate();
+    const month = date.getMonth() + 1;
+    const year = date.getFullYear();
+
+    return `${day}/${month}/${year}`;
   };
 
   return (
@@ -74,7 +110,7 @@ function Product() {
             requiredMark={false}
             name="commentForm"
             layout="veritcal"
-            onFinish={test}
+            onFinish={submitComment}
           >
             <Form.Item
               style={{ margin: 10 }}
@@ -93,6 +129,7 @@ function Product() {
             </Form.Item>
           </Form>
         </UserComment>
+        {renderComments()}
       </CommentsSection>
 
       <Footer />
