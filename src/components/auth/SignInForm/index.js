@@ -1,8 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { AuthContext } from '../../../Context/AuthContext';
 
-import { Redirect } from 'react-router-dom';
-
 import api from '../../../api';
 
 import { Form, Checkbox, Divider, message } from 'antd';
@@ -30,7 +28,7 @@ function SignInForm() {
   const [passwordError, setPasswordError] = useState('');
   const [isLoading, setIsLoading] = useState(false);
 
-  const { handleAuth, authenticated } = useContext(AuthContext);
+  const { handleAuth } = useContext(AuthContext);
 
   function handleLogin({ email, password }) {
     setIsLoading(true);
@@ -44,6 +42,7 @@ function SignInForm() {
       .then(resp => {
         setIsLoading(false);
         handleAuth(resp.data.token);
+        window.location.replace('/home');
       })
       .catch(error => onErrorLoginHandler(error.response.data));
   };
@@ -80,12 +79,6 @@ function SignInForm() {
 
       return {};
     });
-  };
-
-  function redirectToHome() {
-    if (authenticated) {
-      return <Redirect to="/home" />
-    };
   };
 
   return (
@@ -153,7 +146,6 @@ function SignInForm() {
           </FormInputs>
         </SignInSection>
       </SignInFormArea>
-      {redirectToHome()}
     </SignInFormSection>
   );
 };

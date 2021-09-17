@@ -12,12 +12,12 @@
 
 - [x] Limitar quantidade de tags por produto
 - [x] Responsividade dos cards de produtos
-- [ ] Página do produto
+- [x] Página do produto
 - [ ] Sistema de comentário e avaliação do produto
 - [ ] Página para finalizar a compra
 - [ ] Botão para remover produto direto do carrinho
 - [ ] Adicionar dinâmica nos cards de produto
-- [ ] Corrigir bug de remoção e armazenamento do estado do carrinho
+- [x] Corrigir bug de remoção e armazenamento do estado do carrinho
 - [ ] Limitar tamanho das imagens dos produtos
 - [ ] Sistema de estoque de produtos
 
