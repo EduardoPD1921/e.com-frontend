@@ -14,6 +14,7 @@
 - [x] Responsividade dos cards de produtos
 - [x] Página do produto
 - [ ] Sistema de comentário e avaliação do produto
+- [ ] Botão para ver avaliações no card do produto 
 - [ ] Página para finalizar a compra
 - [ ] Botão para remover produto direto do carrinho
 - [ ] Adicionar dinâmica nos cards de produto
