@@ -7,18 +7,15 @@ import Navbar from '../../components/layout/Navbar';
 import Footer from '../../components/layout/Footer';
 import ProductInfo from '../../components/ProductInfo';
 import CommentForm from '../../components/CommentForm';
+import CommentCard from '../../components/CommentCard';
 
-import { Divider, Rate, Avatar } from 'antd';
-import { LoadingOutlined, UserOutlined } from '@ant-design/icons';
+import { Divider } from 'antd';
+import { LoadingOutlined } from '@ant-design/icons';
 
 import {
   ProductInfoSection,
   CommentsSection,
-  UserComment,
-  CommentCard,
-  CommentAuthor,
-  CommentDate,
-  Comment
+  UserComment
 } from './styles';
 
 function Product() {
@@ -50,32 +47,20 @@ function Product() {
 
     return <LoadingOutlined style={{ color: '#ff8b15' }} />
   };
-
+  
   function renderComments() {
     if (product) {
       return product.comments.map(comment => {
         return (
-          <CommentCard>
-            <CommentAuthor><Avatar style={{ marginRight: 10 }} icon={<UserOutlined />} />{comment.authorName}</CommentAuthor>
-            <CommentDate>{getDateString(comment.postDate)}</CommentDate>
-            <Rate allowHalf disabled defaultValue={comment.stars} />
-            <Comment>
-              {comment.comment}
-            </Comment>
-          </CommentCard>
+          <CommentCard
+            authorName={comment.authorName}
+            postDate={comment.postDate}
+            stars={comment.stars}
+            comment={comment.comment} 
+          />
         );
       });
     };
-  };
-
-  function getDateString(fullDate) {
-    const date = new Date(fullDate);
-
-    const day = date.getDate();
-    const month = date.getMonth() + 1;
-    const year = date.getFullYear();
-
-    return `${day}/${month}/${year}`;
   };
 
   return (

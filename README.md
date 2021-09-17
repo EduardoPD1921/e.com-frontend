@@ -13,7 +13,9 @@
 - [x] Limitar quantidade de tags por produto
 - [x] Responsividade dos cards de produtos
 - [x] Página do produto
-- [ ] Sistema de comentário e avaliação do produto
+- [x] Sistema de comentário e avaliação do produto
+- [ ] Tratar os erros no endpoint de comentários
+- [ ] Tratar o loading dos comentários
 - [ ] Botão para ver avaliações no card do produto 
 - [ ] Página para finalizar a compra
 - [ ] Botão para remover produto direto do carrinho
