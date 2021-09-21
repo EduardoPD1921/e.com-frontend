@@ -58,7 +58,7 @@ export const TagContainer = styled.div`
 `;
 
 export const ActionButtonsContainer = styled.div`
-  margin: 60px 0 0 25px;
+  margin: 60px 0 10px 25px;
 
   display: flex;
   justify-content: space-between;
@@ -111,4 +111,16 @@ export const BookmarkProductAction = styled.button`
   background: white;
 
   cursor: pointer;
+`;
+
+export const RateLink = styled.a`
+  margin-left: 25px;
+
+  text-decoration: underline;
+  color: black;
+
+  :hover {
+    color: black;
+    text-decoration: underline;
+  }
 `;

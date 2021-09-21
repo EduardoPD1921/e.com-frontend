@@ -16,7 +16,7 @@
 - [x] Sistema de comentário e avaliação do produto
 - [ ] Tratar os erros no endpoint de comentários
 - [ ] Tratar o loading dos comentários
-- [ ] Botão para ver avaliações no card do produto 
+- [x] Botão para ver avaliações no card do produto 
 - [ ] Página para finalizar a compra
 - [ ] Botão para remover produto direto do carrinho
 - [ ] Adicionar dinâmica nos cards de produto

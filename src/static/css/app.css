@@ -2,6 +2,7 @@ html, body {
   padding: 0;
   margin: 0;
   font-family: roboto !important;
+  scroll-behavior: smooth;
 }
 
 /* Custom antd inputs, that's why it's needed to use !important tag */

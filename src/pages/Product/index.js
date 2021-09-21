@@ -71,7 +71,7 @@ function Product() {
         {renderProductInfo()}
       </ProductInfoSection>
 
-      <CommentsSection>
+      <CommentsSection id="commentSection">
         <Divider>Comentários</Divider>
 
         <UserComment>

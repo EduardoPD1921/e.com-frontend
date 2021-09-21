@@ -17,7 +17,8 @@ import {
   ActionButtonsContainer,
   BuyAction,
   AddToCartAction,
-  BookmarkProductAction
+  BookmarkProductAction,
+  RateLink
 } from './styles';
 
 function ProductInfo({ id, title, image, price, tags }) {
@@ -73,6 +74,7 @@ function ProductInfo({ id, title, image, price, tags }) {
           </AddToCartAction>
           {renderLikedButton()}
         </ActionButtonsContainer>
+        <RateLink href="#commentSection">Ver avaliações</RateLink>
       </InfoContainer>
     </ProductInfoSection>
   );
