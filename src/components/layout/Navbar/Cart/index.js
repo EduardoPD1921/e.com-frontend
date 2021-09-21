@@ -38,6 +38,7 @@ function Cart() {
     return addedProductsToCart.map(product => {
       return (
         <CartProductCard
+          id={product._id}
           image={product.image}
           title={product.title}
           tags={product.tags}

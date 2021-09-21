@@ -1,16 +1,21 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { CartContext } from '../../Context/CartContext';
 
 import { InputNumber, Divider } from 'antd';
+import { RiCloseFill } from 'react-icons/ri';
 
 import {
   CartProductCardContainer,
   CardInfo,
   CardTitle,
   CardTags,
-  CardPrice
+  CardPrice,
+  CloseButton
 } from './styles';
 
-function CartProductCard({ image, title, tags, price }) {
+function CartProductCard({ id, image, title, tags, price }) {
+  const { removeProductFromCart } = useContext(CartContext);
+
   return (
     <>
       <Divider />
@@ -27,6 +32,9 @@ function CartProductCard({ image, title, tags, price }) {
           />
         </CardInfo>
         <CardPrice>R${price.toFixed(2).replace('.', ',')}</CardPrice>
+        <CloseButton>
+          <RiCloseFill onClick={() => removeProductFromCart(id)} style={{ fontSize: 18 }} />
+        </CloseButton>
       </CartProductCardContainer>
     </>
   );
