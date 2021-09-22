@@ -88,7 +88,7 @@ function Cart() {
             <CheckoutInfo>Subtotal</CheckoutInfo>
             <CheckoutInfo style={{ marginLeft: 'auto' }}>R${renderSubtotal()}</CheckoutInfo>
           </SubtotalContainer>
-          <CheckoutButton>
+          <CheckoutButton href="/checkout">
             Finalizar compra
           </CheckoutButton>
         </CheckoutContainer>

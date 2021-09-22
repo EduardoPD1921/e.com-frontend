@@ -37,6 +37,10 @@ export const CheckoutButton = styled(Button)`
     margin-top: 50px;
     height: 60px;
 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
     font-family: robotoMedium;
     font-size: 16px;
     color: #525252;
