@@ -7,6 +7,7 @@ import Home from '../pages/Home';
 import SignIn from '../pages/SignIn';
 import SignUp from '../pages/SignUp';
 import Product from '../pages/Product';
+import Checkout from '../pages/Checkout';
 
 function Routes() {
   const { authenticated } = useContext(AuthContext);
@@ -28,6 +29,9 @@ function Routes() {
         </Route>
         <Route path="/product/:id" exact> 
           <Product />
+        </Route>
+        <Route path="/checkout" exact>
+          <Checkout />
         </Route>
       </Switch>
     </Router>
