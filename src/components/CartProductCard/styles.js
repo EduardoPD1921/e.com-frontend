@@ -1,13 +1,22 @@
 import styled from 'styled-components';
 
 export const CloseButton = styled.div`
-  position: absolute;
-
-  right: 30px;
-
   visibility: hidden;
 
+  align-self: flex-end;
+
   cursor: pointer;
+`;
+
+export const MainContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+
+  :hover {
+    ${CloseButton} {
+      visibility: visible;
+    }
+  }
 `;
 
 export const CartProductCardContainer = styled.div`
@@ -15,12 +24,6 @@ export const CartProductCardContainer = styled.div`
   flex-direction: row;
 
   justify-content: space-between;
-
-  :hover {
-    ${CloseButton} {
-      visibility: visible;
-    }
-  }
 `;
 
 export const CardInfo = styled.div`
