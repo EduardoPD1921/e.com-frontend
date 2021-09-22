@@ -37,21 +37,3 @@ export const TitleRow = styled.tr`
   border-bottom-width: 2px;
   border-color: #f6f6f6;
 `;
-
-export const TableProductDisplay = styled.td`
-  width: 90px;
-
-  display: flex;
-  flex-direction: row;
-`;
-
-export const TableProductInfo = styled.div`
-  display: flex;
-  flex-direction: column;
-
-  justify-content: center;
-`;
-
-export const ProductTitle = styled.h3`
-  font-family: robotoMedium;
-`;
