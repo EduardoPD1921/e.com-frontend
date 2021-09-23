@@ -14,6 +14,7 @@
 - [x] Responsividade dos cards de produtos
 - [x] Página do produto
 - [x] Sistema de comentário e avaliação do produto
+- [ ] Resolver bug da quantidade na tabela da página de finalizar compra
 - [ ] Tratar os erros no endpoint de comentários
 - [ ] Tratar o loading dos comentários
 - [x] Botão para ver avaliações no card do produto 
@@ -22,7 +23,7 @@
 - [ ] Adicionar dinâmica nos cards de produto
 - [x] Corrigir bug de remoção e armazenamento do estado do carrinho
 - [ ] Limitar tamanho das imagens dos produtos
-- [ ] Sistema de estoque de produtos
+- [x] Sistema de estoque de produtos
 
 ## :large_orange_diamond: Identidade visual
 <img src="./.github/assets/images/preview.png">

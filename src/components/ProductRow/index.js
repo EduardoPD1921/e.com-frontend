@@ -73,7 +73,7 @@ function ProductRow({ id, title, price, image, quantity }) {
       <td>
         <h3>R${renderProductSubtotal()}</h3>
       </td>
-      <td>
+      <td style={{ width: 20 }}>
         <VscClose onClick={() => removeProductFromCart(id)} style={{ fontSize: 25, cursor: 'pointer' }} />
       </td>
     </tr>
