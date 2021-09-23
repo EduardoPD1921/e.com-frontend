@@ -47,17 +47,9 @@ function CartProvider({ children }) {
       .catch(error => errorHandler(error.response));
   };
 
-  function addProductQuantity(productId) {
+  function updateProductQuantity(productId, productQuantity) {
     return new Promise((resolve, reject) => {
-      api.put('/user/addProductQuantity', { productId })
-        .then(resp => resolve(resp))
-        .catch(error => reject(error.response));
-    });
-  };
-
-  function removeProductQuantity(productId) {
-    return new Promise((resolve, reject) => {
-      api.put('/user/removeProductQuantity', { productId })
+      api.put('/user/updateProductQuantity', { productId, productQuantity })
         .then(resp => resolve(resp))
         .catch(error => reject(error.response));
     });
@@ -76,9 +68,8 @@ function CartProvider({ children }) {
     <CartContext.Provider value={
       { 
         addProductToCart, 
-        removeProductFromCart, 
-        addProductQuantity, 
-        removeProductQuantity,
+        removeProductFromCart,
+        updateProductQuantity,
         addedProductsToCart, 
         cartSize 
       }

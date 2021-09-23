@@ -15,12 +15,12 @@ import {
 function ProductRow({ id, title, price, image, quantity }) {
   const [productQuantity, setProductQuantity] = useState(quantity);
 
-  const { removeProductFromCart, addProductQuantity, removeProductQuantity } = useContext(CartContext);
+  const { removeProductFromCart, updateProductQuantity } = useContext(CartContext);
 
   function increaseProductQuantity() {
-    addProductQuantity(id)
+    updateProductQuantity(id, productQuantity + 1)
       .then(resp => {
-        console.log(resp)
+        console.log(resp);
         setProductQuantity(prevState => prevState + 1);
       })
       .catch(error => errorHandler(error));
@@ -28,7 +28,7 @@ function ProductRow({ id, title, price, image, quantity }) {
 
   function decreaseProductQuantity() {
     if (productQuantity > 1) {
-      removeProductQuantity(id)
+      updateProductQuantity(id, productQuantity - 1)
         .then(resp => {
           console.log(resp);
           setProductQuantity(prevState => prevState - 1);

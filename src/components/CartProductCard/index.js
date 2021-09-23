@@ -32,6 +32,7 @@ function CartProductCard({ id, image, title, tags, price }) {
               {tags.map(tag => tag + ' ')}
             </CardTags>
             <InputNumber
+              min={1}
               defaultValue={1}
               style={{ width: 70, marginTop: 15 }} 
             />
