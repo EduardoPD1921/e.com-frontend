@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { CartContext } from '../../Context/CartContext';
 
-import { InputNumber, Divider } from 'antd';
+import { InputNumber, Divider, message } from 'antd';
 import { RiCloseFill } from 'react-icons/ri';
 
 import {
@@ -15,7 +15,24 @@ import {
 } from './styles';
 
 function CartProductCard({ id, image, title, tags, price }) {
-  const { removeProductFromCart } = useContext(CartContext);
+  const { removeProductFromCart, updateProductQuantity } = useContext(CartContext);
+
+  function quantityChangeHandler(productQuantity) {
+    if (productQuantity >= 1) {
+      updateProductQuantity(id, productQuantity)
+        .then(resp => console.log(resp))
+        .catch(error => errorHandler(error));
+    };
+  };
+
+  function errorHandler(error) {
+    if (error.data === 'access-denied') {
+      return window.location.replace('/signIn');
+    };
+
+    message.error('Erro interno');
+    console.log(error);
+  };
 
   return (
     <>
@@ -32,6 +49,7 @@ function CartProductCard({ id, image, title, tags, price }) {
               {tags.map(tag => tag + ' ')}
             </CardTags>
             <InputNumber
+              onChange={value => quantityChangeHandler(value)}
               min={1}
               defaultValue={1}
               style={{ width: 70, marginTop: 15 }} 
