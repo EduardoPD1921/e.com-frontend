@@ -47,6 +47,22 @@ function CartProvider({ children }) {
       .catch(error => errorHandler(error.response));
   };
 
+  function addProductQuantity(productId) {
+    return new Promise((resolve, reject) => {
+      api.put('/user/addProductQuantity', { productId })
+        .then(resp => resolve(resp))
+        .catch(error => reject(error.response));
+    });
+  };
+
+  function removeProductQuantity(productId) {
+    return new Promise((resolve, reject) => {
+      api.put('/user/removeProductQuantity', { productId })
+        .then(resp => resolve(resp))
+        .catch(error => reject(error.response));
+    });
+  };
+
   function errorHandler(error) {
     if (error.data === 'access-denied') {
       return window.location.replace('/signIn');
@@ -57,7 +73,16 @@ function CartProvider({ children }) {
   };
 
   return (
-    <CartContext.Provider value={{ addProductToCart, removeProductFromCart, addedProductsToCart, cartSize }}>
+    <CartContext.Provider value={
+      { 
+        addProductToCart, 
+        removeProductFromCart, 
+        addProductQuantity, 
+        removeProductQuantity,
+        addedProductsToCart, 
+        cartSize 
+      }
+    }>
       {children}
     </CartContext.Provider>
   );

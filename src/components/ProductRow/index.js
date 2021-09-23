@@ -1,5 +1,7 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { CartContext } from '../../Context/CartContext';
+
+import { message } from 'antd';
 
 import { PlusOutlined, MinusOutlined } from '@ant-design/icons';
 import { VscClose } from 'react-icons/vsc';
@@ -11,7 +13,38 @@ import {
 } from './styles';
 
 function ProductRow({ id, title, price, image, quantity }) {
-  const { removeProductFromCart } = useContext(CartContext);
+  const [productQuantity, setProductQuantity] = useState(quantity);
+
+  const { removeProductFromCart, addProductQuantity, removeProductQuantity } = useContext(CartContext);
+
+  function increaseProductQuantity() {
+    addProductQuantity(id)
+      .then(resp => {
+        console.log(resp)
+        setProductQuantity(prevState => prevState + 1);
+      })
+      .catch(error => errorHandler(error));
+  };
+
+  function decreaseProductQuantity() {
+    if (productQuantity > 1) {
+      removeProductQuantity(id)
+        .then(resp => {
+          console.log(resp);
+          setProductQuantity(prevState => prevState - 1);
+        })
+        .catch(error => errorHandler(error));
+    }
+  };
+
+  function errorHandler(error) {
+    if (error.data === 'access-denied') {
+      return window.location.replace('/signIn');
+    };
+
+    message.error('Erro interno');
+    console.log(error);
+  };
 
   return (
     <tr>
@@ -29,9 +62,9 @@ function ProductRow({ id, title, price, image, quantity }) {
         </TableProductInfo>
       </TableProductDisplay>
       <td>
-        <MinusOutlined style={{ fontSize: 20 }} />
-        <span style={{ marginLeft: 15, marginRight: 15 }}>{quantity}</span>
-        <PlusOutlined style={{ fontSize: 20 }} />
+        <MinusOutlined onClick={() => decreaseProductQuantity()} style={{ fontSize: 20 }} />
+        <span style={{ marginLeft: 15, marginRight: 15 }}>{productQuantity}</span>
+        <PlusOutlined onClick={() => increaseProductQuantity()} style={{ fontSize: 20 }} />
       </td>
       <td>
         <h3>R${price.toFixed(2).replace('.', ',')}</h3>
