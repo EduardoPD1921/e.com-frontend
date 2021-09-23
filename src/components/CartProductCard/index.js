@@ -14,7 +14,7 @@ import {
   CloseButton
 } from './styles';
 
-function CartProductCard({ id, image, title, tags, price }) {
+function CartProductCard({ id, image, title, tags, price, quantity }) {
   const { removeProductFromCart, updateProductQuantity } = useContext(CartContext);
 
   function quantityChangeHandler(productQuantity) {
@@ -34,6 +34,10 @@ function CartProductCard({ id, image, title, tags, price }) {
     console.log(error);
   };
 
+  function renderProductSubtotal() {
+    return (price * (quantity || 1)).toFixed(2).replace('.', ',');
+  };
+
   return (
     <>
       <Divider />
@@ -51,11 +55,11 @@ function CartProductCard({ id, image, title, tags, price }) {
             <InputNumber
               onChange={value => quantityChangeHandler(value)}
               min={1}
-              defaultValue={1}
+              defaultValue={quantity || 1}
               style={{ width: 70, marginTop: 15 }} 
             />
           </CardInfo>
-          <CardPrice>R${price.toFixed(2).replace('.', ',')}</CardPrice>
+          <CardPrice>R${renderProductSubtotal()}</CardPrice>
         </CartProductCardContainer>
       </MainContainer>
     </>

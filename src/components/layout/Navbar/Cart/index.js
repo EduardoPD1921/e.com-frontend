@@ -43,6 +43,7 @@ function Cart() {
           title={product.title}
           tags={product.tags}
           price={product.price}
+          quantity={product.quantity}
         />
       );
     });
@@ -50,7 +51,7 @@ function Cart() {
 
   function renderSubtotal() {
     const arrPrices = addedProductsToCart.map(product => {
-      return product.price;
+      return product.price * (product.quantity || 1);
     });
 
     if (arrPrices.length > 0) {

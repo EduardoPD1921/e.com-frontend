@@ -50,7 +50,19 @@ function CartProvider({ children }) {
   function updateProductQuantity(productId, productQuantity) {
     return new Promise((resolve, reject) => {
       api.put('/user/updateProductQuantity', { productId, productQuantity })
-        .then(resp => resolve(resp))
+        .then(resp => {
+          setAddedProductsToCart(prevState => {
+            const quantityUpdated = prevState.map(product => {
+              if (product._id === productId) {
+                product.quantity = productQuantity;
+              };
+
+              return product;
+            });
+            return quantityUpdated;
+          });
+          resolve(resp);
+        })
         .catch(error => reject(error.response));
     });
   };

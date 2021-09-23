@@ -37,6 +37,10 @@ function ProductRow({ id, title, price, image, quantity }) {
     }
   };
 
+  function renderProductSubtotal() {
+    return (price * (quantity || 1)).toFixed(2).replace('.', ',');
+  };
+
   function errorHandler(error) {
     if (error.data === 'access-denied') {
       return window.location.replace('/signIn');
@@ -67,7 +71,7 @@ function ProductRow({ id, title, price, image, quantity }) {
         <PlusOutlined onClick={() => increaseProductQuantity()} style={{ fontSize: 20 }} />
       </td>
       <td>
-        <h3>R${price.toFixed(2).replace('.', ',')}</h3>
+        <h3>R${renderProductSubtotal()}</h3>
       </td>
       <td>
         <VscClose onClick={() => removeProductFromCart(id)} style={{ fontSize: 25, cursor: 'pointer' }} />
