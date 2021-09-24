@@ -18,7 +18,7 @@
 - [ ] Tratar os erros no endpoint de comentários
 - [ ] Tratar o loading dos comentários
 - [x] Botão para ver avaliações no card do produto 
-- [ ] Página para finalizar a compra
+- [x] Página para finalizar a compra
 - [x] Botão para remover produto direto do carrinho
 - [ ] Adicionar dinâmica nos cards de produto
 - [x] Corrigir bug de remoção e armazenamento do estado do carrinho

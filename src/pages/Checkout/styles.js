@@ -18,14 +18,23 @@ export const InfoContainer = styled.div`
 `;
 
 export const ProductsInfo = styled.div`
+  margin-top: 20px;
+
   display: flex;
   flex-direction: column;
   flex: 4;
 `;
 
 export const PaymentInfo = styled.div`
+  margin-left: 40px;
+
   display: flex;
+  flex-direction: column;
   flex: 2;
+
+  border-radius: 15px;
+
+  background: #FAFAFA;
 `;
 
 export const ProductsInfoTitle = styled.h1`
@@ -127,4 +136,59 @@ export const TextRow = styled.div`
   :hover {
     text-decoration: underline;
   }
+`;
+
+export const PaymentInfoTitle = styled.h1`
+  margin: 20px 0 0 30px;
+
+  font-family: robotoBold;
+`;
+
+export const PaymentMethodContainer = styled.div`
+  margin: 50px 30px 0 30px;
+
+  display: flex;
+  flex-direction: column;
+`;
+
+export const PaymentMethodTitle = styled.span`
+  font-size: 13px;
+  color: #8F9190;
+`;
+
+export const PaymentMethodRow = styled.div`
+  margin-top: 20px;
+
+  display: flex;
+  flex-direction: row;
+
+  align-items: center;
+`;
+
+export const PaymentMethodText = styled.span`
+  margin-left: 32px;
+
+  font-family: robotoMedium;
+`;
+
+export const InfoRow = styled.div`
+  display: flex;
+  flex-direction: row;
+`;
+
+export const CheckoutButton = styled.button`
+  height: 60px;
+
+  margin-top: 70px;
+
+  background: #1890FF;
+
+  color: white;
+  font-family: robotoBold;
+  font-size: 18px;
+
+  border: none;
+  border-radius: 8px;
+
+  cursor: pointer;
 `;
